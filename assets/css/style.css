@@ -8,6 +8,7 @@
   --cardboard-background-color: #F0F0F0;
 }
 
+/* Default styles */
 * {
   padding: 0;
   margin: 0;
@@ -27,6 +28,7 @@ body {
   background: linear-gradient(to bottom, #b2b2b2, #d3d3d3);
 }
 
+/* Table */
 .table {
   width: 100%;
 }
@@ -40,30 +42,7 @@ body {
   width: 30%;
 }
 
-#controls {
-  display: flex;
-  color: var(--light-color);
-  background: var(--main-color);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  min-height: 40px;
-}
-
-#start-button {
-  font-size: 1rem;
-  cursor: pointer;
-  width: 100%;
-  color: var(--light-color);
-  background-color: var(--highlight-color);
-  color: var(--main-color);
-  width: 50%;
-  height: 70%;
-  box-shadow: 0 0 5px var(--dark-color);
-  border-radius: 1rem;
-}
-
+/* Game Board */
 .container {
   height: 100%;
   width: 100%;
@@ -128,10 +107,39 @@ body {
   transition: 0.25s; 
 }
 
+/* Controls, start button */
+#controls {
+  display: flex;
+  color: var(--light-color);
+  background: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 40px;
+}
+
+#start-button {
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  color: var(--light-color);
+  background-color: var(--highlight-color);
+  color: var(--main-color);
+  width: 50%;
+  height: 70%;
+  box-shadow: 0 0 5px var(--dark-color);
+  border-radius: 1rem;
+}
+
+/* Media queries */
 @media screen and (min-width: 568px) {
+  /* Game Board */
   #card-board {
     grid-template-columns: repeat(5, 1fr);
   }
+
+  /* Controls, start button */
   #start-button {
     width: 50%;
   }
@@ -144,6 +152,7 @@ body {
     justify-content: space-between;
   }
 
+  /* Table */
   .table {
     padding: 0 1rem;
   }
@@ -153,6 +162,15 @@ body {
     padding: 1rem;
     background-color: #002855;
     color: #e3d44c;
+  }
+
+  /* Game Board */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
   }
 
   #card-board {
@@ -165,14 +183,7 @@ body {
     background: #E8E594;
   }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-  }
-
+  /* Controls, start button */
   #controls {
     min-height: 4rem;
   }
