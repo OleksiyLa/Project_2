@@ -71,6 +71,7 @@ body {
 
 #card-board {
   perspective: 1000px;
+  overflow: hidden;
   user-select: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
