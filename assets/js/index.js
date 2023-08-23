@@ -1,3 +1,4 @@
+// Event listeners
 document.addEventListener("DOMContentLoaded", function() {
   const cardBoard = document.querySelector('#card-board');
   const startButton = document.querySelector('#start-button');
@@ -12,17 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let startingValue = 1
     const shuffledArray = shuffleArray(arrNumbers);
     cardBoard.innerHTML = generateCardsHTML(shuffledArray);
-    cardBoard.addEventListener("click", (e) => {
-      if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber == startingValue) {
-        e.target.parentNode.style.transform = 'rotateY(180deg)';
-        console.log(e.target.parentNode.dataset.cardNumber)
-        startingValue++
-      }
-    })
+    cardBoard.addEventListener("click", (e) => clickBoardHandler(e, startingValue, cardBoard))
     console.log(openCardsFromOneToArgumentNumber(cardBoard, shuffledArray, 1))
   });
 })
 
+// Functions
 function selectRandomArrayIndex(arr) {
   return Math.floor(Math.random() * arr.length);
 }
@@ -66,29 +62,6 @@ function generateCardsHTML(arrNumbers) {
   return cardsHTML;
 }
 
-// function generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen) {
-//   let arrayOfRandomIndexes = []
-//   for (let index = 0; index < numberOfCardsToOpen; index++) {
-//     arrayOfRandomIndexes.push(selectRandomArrayIndex(arrNumbers));
-//   }
-//   return arrayOfRandomIndexes
-// }
-
-// function openCardsRandomly(domElem, arrNumbers, numberOfCardsToOpen) {
-//   const arrayOfRandomIndexes = generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen);
-//   const cardsToPick = []
-//   arrayOfRandomIndexes.map(item => {
-//     cardsToPick.push(domElem.children[item].children[0].dataset.cardNumber)
-//     setTimeout(()=>{
-//     domElem.children[item].children[0].classList.add("rotate");
-//     }, 0)
-//     setTimeout(()=>{
-//       domElem.children[item].children[0].classList.remove("rotate");
-//     }, 2000)
-//   });
-//   return cardsToPick;
-// }
-
 function obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
   const arrayOfIndexes = []
   for (let index = 0; index < numberOfCardsToOpen; index++) {
@@ -108,4 +81,16 @@ function openCardsFromOneToArgumentNumber(domElem, arrNumbers, numberOfCardsToOp
     }, 2000)
   })
   return arrayOfIndexes;
+}
+
+// Event listener functions
+function clickBoardHandler(e, startingValue, elementDOM) {
+  if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber == startingValue) {
+    e.target.parentNode.style.transform = 'rotateY(180deg)';
+    console.log(e.target.parentNode.dataset.cardNumber)
+    startingValue++
+  } else if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber != startingValue) {
+    elementDOM.innerHTML = `<h2>You Lost!!!</h2>`
+    elementDOM.removeEventListener("click", clickBoardHandler);
+  }
 }
