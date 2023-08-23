@@ -9,20 +9,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   startButton.addEventListener("click", () => {
-    cardBoard.innerHTML = generateCardsHTML(shuffleArray(arrNumbers));
+    let startingValue = 1
+    const shuffledArray = shuffleArray(arrNumbers);
+    cardBoard.innerHTML = generateCardsHTML(shuffledArray);
     cardBoard.addEventListener("click", (e) => {
-      if(e.target.className === "card-back") {
+      if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber == startingValue) {
         e.target.parentNode.style.transform = 'rotateY(180deg)';
         console.log(e.target.parentNode.dataset.cardNumber)
+        startingValue++
       }
     })
-    console.log(generateArrayOfRandomIndexes(arrNumbers, 3))
-    openCardsRandomly(cardBoard, arrNumbers, 5)
+    console.log(openCardsFromOneToArgumentNumber(cardBoard, shuffledArray, 1))
   });
 })
 
 function selectRandomArrayIndex(arr) {
-return Math.floor(Math.random() * arr.length);
+  return Math.floor(Math.random() * arr.length);
 }
 
 function shuffleArray(arrOfNumbers) {
@@ -36,7 +38,7 @@ for (let index = 0; index < arrOfNumbers.length; index++) {
   arr.splice(randomIndex, 1)
   newArr.push(newValue)
 }
-return newArr
+  return newArr
 }
 
 function generateArrayFromOneToArgumentNumber(numberOfCards) {
@@ -64,23 +66,46 @@ function generateCardsHTML(arrNumbers) {
   return cardsHTML;
 }
 
-function generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen) {
-  let arrayOfRandomIndexes = []
+// function generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen) {
+//   let arrayOfRandomIndexes = []
+//   for (let index = 0; index < numberOfCardsToOpen; index++) {
+//     arrayOfRandomIndexes.push(selectRandomArrayIndex(arrNumbers));
+//   }
+//   return arrayOfRandomIndexes
+// }
+
+// function openCardsRandomly(domElem, arrNumbers, numberOfCardsToOpen) {
+//   const arrayOfRandomIndexes = generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen);
+//   const cardsToPick = []
+//   arrayOfRandomIndexes.map(item => {
+//     cardsToPick.push(domElem.children[item].children[0].dataset.cardNumber)
+//     setTimeout(()=>{
+//     domElem.children[item].children[0].classList.add("rotate");
+//     }, 0)
+//     setTimeout(()=>{
+//       domElem.children[item].children[0].classList.remove("rotate");
+//     }, 2000)
+//   });
+//   return cardsToPick;
+// }
+
+function obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
+  const arrayOfIndexes = []
   for (let index = 0; index < numberOfCardsToOpen; index++) {
-    arrayOfRandomIndexes.push(selectRandomArrayIndex(arrNumbers));
+    arrayOfIndexes.push(arrNumbers.findIndex(elem => elem == index + 1));
   }
-  return arrayOfRandomIndexes
+  return arrayOfIndexes;
 }
 
-function openCardsRandomly(domElem, arrNumbers, numberOfCardsToOpen) {
-  const arrayOfRandomIndexes = generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen);
-  arrayOfRandomIndexes.map(item => {
-    console.log(domElem.children[item].children[0])
+function openCardsFromOneToArgumentNumber(domElem, arrNumbers, numberOfCardsToOpen) {
+  const arrayOfIndexes = obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen);
+  arrayOfIndexes.map(elem => {
     setTimeout(()=>{
-    domElem.children[item].children[0].classList.add("rotate");
-    }, 0)
+      domElem.children[elem].children[0].classList.add("rotate");
+    })
     setTimeout(()=>{
-      domElem.children[item].children[0].classList.remove("rotate");
-    }, 1000)
-  });
+      domElem.children[elem].children[0].classList.remove("rotate");
+    }, 2000)
+  })
+  return arrayOfIndexes;
 }
