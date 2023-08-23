@@ -13,8 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
     cardBoard.addEventListener("click", (e) => {
       if(e.target.className === "card-back") {
         e.target.parentNode.style.transform = 'rotateY(180deg)';
+        console.log(e.target.parentNode.dataset.cardNumber)
       }
     })
+    console.log(generateArrayOfRandomIndexes(arrNumbers, 3))
+    openCardsRandomly(cardBoard, arrNumbers, 5)
   });
 })
 
@@ -49,7 +52,7 @@ function generateCardsHTML(arrNumbers) {
   for (let index = 0; index < arrNumbers.length; index++) {
     cardsHTML += 
     `<div class="card-container">
-        <div class="card" id="card-${arrNumbers[index]}">
+        <div class="card" data-card-number="${arrNumbers[index]}">
           <div class="card-front">
             ${arrNumbers[index]}
           </div>
@@ -59,4 +62,20 @@ function generateCardsHTML(arrNumbers) {
       </div>`;
   }
   return cardsHTML;
+}
+
+function generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen) {
+  let arrayOfRandomIndexes = []
+  for (let index = 0; index < numberOfCardsToOpen; index++) {
+    arrayOfRandomIndexes.push(selectRandomArrayIndex(arrNumbers));
+  }
+  return arrayOfRandomIndexes
+}
+
+function openCardsRandomly(domElem, arrNumbers, numberOfCardsToOpen) {
+  const arrayOfRandomIndexes = generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen);
+  arrayOfRandomIndexes.map(item => {
+    console.log(domElem.children[item].children[0])
+    domElem.children[item].children[0].style.transform = 'rotateY(180deg)';
+  });
 }
