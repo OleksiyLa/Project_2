@@ -1,20 +1,31 @@
+let startingValue = 1;
+let level = 1;
+let arrayOfIndexes = [];
 // Event listeners
 document.addEventListener("DOMContentLoaded", function() {
   const cardBoard = document.querySelector('#card-board');
   const startButton = document.querySelector('#start-button');
+  const currentLevel = document.querySelector('#current-level');
 
   let numberOfCards = 20;
   let arrNumbers = generateArrayFromOneToArgumentNumber(numberOfCards);
   cardBoard.innerHTML = generateCardsHTML(arrNumbers);
   
 
-
+  const wrappedFunction = eventHandlerWrapper(cardBoard, startButton, clickBoardHandler)
   startButton.addEventListener("click", () => {
-    let startingValue = 1
+    // cardBoard.removeEventListener("click", clickBoardHandler);
+    cardBoard.removeEventListener("click", wrappedFunction);
+    console.log(startingValue)
+    startingValue = 1;
+    console.log(startingValue)
     const shuffledArray = shuffleArray(arrNumbers);
     cardBoard.innerHTML = generateCardsHTML(shuffledArray);
-    cardBoard.addEventListener("click", (e) => clickBoardHandler(e, startingValue, cardBoard))
-    console.log(openCardsFromOneToArgumentNumber(cardBoard, shuffledArray, 1))
+    arrayOfIndexes = openCardsFromOneToArgumentNumber(cardBoard, shuffledArray, level)
+    console.log(arrayOfIndexes)
+    currentLevel.textContent = level;
+    console.log(wrappedFunction)
+    cardBoard.addEventListener("click", wrappedFunction)
   });
 })
 
@@ -84,13 +95,31 @@ function openCardsFromOneToArgumentNumber(domElem, arrNumbers, numberOfCardsToOp
 }
 
 // Event listener functions
-function clickBoardHandler(e, startingValue, elementDOM) {
-  if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber == startingValue) {
+function clickBoardHandler(e, boardDOM, buttonDom) {
+  console.log(startingValue + ' function clickBoardHandler')
+  if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === startingValue) {
+    arrayOfIndexes.pop();
+    console.log(arrayOfIndexes.length + 'Array length')
+    if(!arrayOfIndexes.length){
+      startingValue = 1;
+      level++;
+      boardDOM.innerHTML = `<h2>You Won!!!</h2>`
+      setTimeout(()=>{buttonDom.click()},1500);
+      return
+    }
     e.target.parentNode.style.transform = 'rotateY(180deg)';
-    console.log(e.target.parentNode.dataset.cardNumber)
+    console.log('You won and should not be here')
     startingValue++
-  } else if(e.target.className === "card-back" && e.target.parentNode.dataset.cardNumber != startingValue) {
-    elementDOM.innerHTML = `<h2>You Lost!!!</h2>`
-    elementDOM.removeEventListener("click", clickBoardHandler);
+  } else if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) !== startingValue) {
+
+    boardDOM.innerHTML = `<h2>You Lost!!!</h2>`
+    console.log('Works twice')
+    startingValue = 1;
   }
+}
+
+function eventHandlerWrapper(arg1, arg2, myFunction) {
+  return function(e) {
+    myFunction(e, arg1, arg2);
+  };
 }
