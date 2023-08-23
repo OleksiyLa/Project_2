@@ -76,6 +76,11 @@ function openCardsRandomly(domElem, arrNumbers, numberOfCardsToOpen) {
   const arrayOfRandomIndexes = generateArrayOfRandomIndexes(arrNumbers, numberOfCardsToOpen);
   arrayOfRandomIndexes.map(item => {
     console.log(domElem.children[item].children[0])
-    domElem.children[item].children[0].style.transform = 'rotateY(180deg)';
+    setTimeout(()=>{
+    domElem.children[item].children[0].classList.add("rotate");
+    }, 0)
+    setTimeout(()=>{
+      domElem.children[item].children[0].classList.remove("rotate");
+    }, 1000)
   });
 }
