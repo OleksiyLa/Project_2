@@ -2,6 +2,7 @@ const elementsDOM = {
   cardBoard: document.querySelector('#card-board'),
   startButton: document.querySelector('#start-button'),
   currentLevel: document.querySelector('#current-level'),
+  tries: document.querySelector('#tries'),
 }
 
 const appState = {
@@ -11,23 +12,33 @@ const appState = {
   startingValue: 1,
   numberOfCards: 20,
   shuffledArray: null,
-  winCardsIndexes: null
+  winCardsIndexes: null,
 }
 appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
-
-// let arrNumbers = generateArrayFromOneToArgumentNumber();
 elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
 
 elementsDOM.startButton.addEventListener("click", () => {
-  elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
-  appState.startingValue = 1;
-  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
-  appState.winCardsIndexes = openCardsFromOneToArgumentNumber(appState.shuffledArray, appState.currentLevel)
-  elementsDOM.currentLevel.textContent = appState.currentLevel;
-  elementsDOM.cardBoard.addEventListener("click", clickBoardHandler)
+  resetState();
+  startGame();
 });
 
 // Funtions
+function startGame() {
+  appState.startingValue = 1;
+  elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
+  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+  appState.winCardsIndexes = getArrOfWinIndexes();
+  elementsDOM.currentLevel.textContent = appState.currentLevel;
+  elementsDOM.tries.textContent = appState.tries
+  openWinCards();
+  elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
+}
+
+function resetState() {
+  appState.startingValue = 1;
+  appState.tries = 0;
+  appState.currentLevel = 1;
+}
 
 // Util Functions
 function selectRandomArrayIndex(arr) {
@@ -73,17 +84,16 @@ function generateCardsHTML(arrNumbers) {
   return cardsHTML;
 }
 
-function obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
+function getArrOfWinIndexes() {
   const arrayOfIndexes = []
-  for (let index = 0; index < numberOfCardsToOpen; index++) {
-    arrayOfIndexes.push(arrNumbers.findIndex(elem => elem == index + 1));
+  for (let index = 0; index < appState.currentLevel; index++) {
+    arrayOfIndexes.push(appState.shuffledArray.findIndex(elem => elem === index + 1));
   }
   return arrayOfIndexes;
 }
 
-function openCardsFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
-  const arrayOfIndexes = obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen);
-  arrayOfIndexes.map(elem => {
+function openWinCards() {
+  appState.winCardsIndexes.map(elem => {
     const card = elementsDOM.cardBoard.children[elem].children[0]
     setTimeout(()=>{
       card.classList.add("rotate");
@@ -92,7 +102,6 @@ function openCardsFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
       card.classList.remove("rotate");
     }, 2000)
   })
-  return arrayOfIndexes;
 }
 
 // Event listener functions
@@ -100,16 +109,18 @@ function clickBoardHandler(e) {
   if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
     appState.winCardsIndexes.pop();
     if(!appState.winCardsIndexes.length){
-      appState.startingValue = 1;
+      appState.tries++
       appState.currentLevel++;
       elementsDOM.cardBoard.innerHTML = `<h2>You Won!!!</h2>`
-      setTimeout(()=>{elementsDOM.startButton.click()},1000);
+      setTimeout(startGame,1000);
       return
     }
     e.target.parentNode.classList.add('rotate');
     appState.startingValue++
-  } else if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) {
+  } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
     elementsDOM.cardBoard.innerHTML = `<h2>You Lost!!!</h2>`
-    appState.startingValue = 1;
+  } else {
+    appState.tries--
+    elementsDOM.tries.textContent = appState.tries
   }
 }
