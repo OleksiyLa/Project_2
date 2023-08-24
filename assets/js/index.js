@@ -9,25 +9,27 @@ const appState = {
   currentLevel: 1,
   tries: 0,
   startingValue: 1,
+  numberOfCards: 20,
+  shuffledArray: null,
+  winCardsIndexes: null
 }
-let arrayOfIndexes = [];
-let numberOfCards = 20;
+appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
 
-let arrNumbers = generateArrayFromOneToArgumentNumber(numberOfCards);
-elementsDOM.cardBoard.innerHTML = generateCardsHTML(arrNumbers);
+// let arrNumbers = generateArrayFromOneToArgumentNumber();
+elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
 
 elementsDOM.startButton.addEventListener("click", () => {
   elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
   appState.startingValue = 1;
-  const shuffledArray = shuffleArray(arrNumbers);
-  elementsDOM.cardBoard.innerHTML = generateCardsHTML(shuffledArray);
-  arrayOfIndexes = openCardsFromOneToArgumentNumber(shuffledArray, appState.currentLevel)
+  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+  appState.winCardsIndexes = openCardsFromOneToArgumentNumber(appState.shuffledArray, appState.currentLevel)
   elementsDOM.currentLevel.textContent = appState.currentLevel;
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler)
 });
 
+// Funtions
 
-// Functions
+// Util Functions
 function selectRandomArrayIndex(arr) {
   return Math.floor(Math.random() * arr.length);
 }
@@ -46,9 +48,9 @@ for (let index = 0; index < arrOfNumbers.length; index++) {
   return newArr
 }
 
-function generateArrayFromOneToArgumentNumber(numberOfCards) {
+function generateArrayFromOneToArgumentNumber() {
   let arrNumbers = [];
-  for (let index = 0; index < numberOfCards; index++) {
+  for (let index = 0; index < appState.numberOfCards; index++) {
     arrNumbers.push(index + 1);
   }
   return arrNumbers
@@ -96,8 +98,8 @@ function openCardsFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
 // Event listener functions
 function clickBoardHandler(e) {
   if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
-    arrayOfIndexes.pop();
-    if(!arrayOfIndexes.length){
+    appState.winCardsIndexes.pop();
+    if(!appState.winCardsIndexes.length){
       appState.startingValue = 1;
       appState.currentLevel++;
       elementsDOM.cardBoard.innerHTML = `<h2>You Won!!!</h2>`
