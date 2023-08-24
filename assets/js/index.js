@@ -1,33 +1,31 @@
-let startingValue = 1;
-let level = 1;
+const elementsDOM = {
+  cardBoard: document.querySelector('#card-board'),
+  startButton: document.querySelector('#start-button'),
+  currentLevel: document.querySelector('#current-level'),
+}
+
+const appState = {
+  maxLevel: 1,
+  currentLevel: 1,
+  tries: 0,
+  startingValue: 1,
+}
 let arrayOfIndexes = [];
-// Event listeners
-document.addEventListener("DOMContentLoaded", function() {
-  const cardBoard = document.querySelector('#card-board');
-  const startButton = document.querySelector('#start-button');
-  const currentLevel = document.querySelector('#current-level');
+let numberOfCards = 20;
 
-  let numberOfCards = 20;
-  let arrNumbers = generateArrayFromOneToArgumentNumber(numberOfCards);
-  cardBoard.innerHTML = generateCardsHTML(arrNumbers);
-  
+let arrNumbers = generateArrayFromOneToArgumentNumber(numberOfCards);
+elementsDOM.cardBoard.innerHTML = generateCardsHTML(arrNumbers);
 
-  const wrappedFunction = eventHandlerWrapper(cardBoard, startButton, clickBoardHandler)
-  startButton.addEventListener("click", () => {
-    // cardBoard.removeEventListener("click", clickBoardHandler);
-    cardBoard.removeEventListener("click", wrappedFunction);
-    console.log(startingValue)
-    startingValue = 1;
-    console.log(startingValue)
-    const shuffledArray = shuffleArray(arrNumbers);
-    cardBoard.innerHTML = generateCardsHTML(shuffledArray);
-    arrayOfIndexes = openCardsFromOneToArgumentNumber(cardBoard, shuffledArray, level)
-    console.log(arrayOfIndexes)
-    currentLevel.textContent = level;
-    console.log(wrappedFunction)
-    cardBoard.addEventListener("click", wrappedFunction)
-  });
-})
+elementsDOM.startButton.addEventListener("click", () => {
+  elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
+  appState.startingValue = 1;
+  const shuffledArray = shuffleArray(arrNumbers);
+  elementsDOM.cardBoard.innerHTML = generateCardsHTML(shuffledArray);
+  arrayOfIndexes = openCardsFromOneToArgumentNumber(shuffledArray, appState.currentLevel)
+  elementsDOM.currentLevel.textContent = appState.currentLevel;
+  elementsDOM.cardBoard.addEventListener("click", clickBoardHandler)
+});
+
 
 // Functions
 function selectRandomArrayIndex(arr) {
@@ -81,45 +79,35 @@ function obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsTo
   return arrayOfIndexes;
 }
 
-function openCardsFromOneToArgumentNumber(domElem, arrNumbers, numberOfCardsToOpen) {
+function openCardsFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen) {
   const arrayOfIndexes = obtainArrayOfIndexesFromOneToArgumentNumber(arrNumbers, numberOfCardsToOpen);
   arrayOfIndexes.map(elem => {
+    const card = elementsDOM.cardBoard.children[elem].children[0]
     setTimeout(()=>{
-      domElem.children[elem].children[0].classList.add("rotate");
+      card.classList.add("rotate");
     })
     setTimeout(()=>{
-      domElem.children[elem].children[0].classList.remove("rotate");
+      card.classList.remove("rotate");
     }, 2000)
   })
   return arrayOfIndexes;
 }
 
 // Event listener functions
-function clickBoardHandler(e, boardDOM, buttonDom) {
-  console.log(startingValue + ' function clickBoardHandler')
-  if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === startingValue) {
+function clickBoardHandler(e) {
+  if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
     arrayOfIndexes.pop();
-    console.log(arrayOfIndexes.length + 'Array length')
     if(!arrayOfIndexes.length){
-      startingValue = 1;
-      level++;
-      boardDOM.innerHTML = `<h2>You Won!!!</h2>`
-      setTimeout(()=>{buttonDom.click()},1500);
+      appState.startingValue = 1;
+      appState.currentLevel++;
+      elementsDOM.cardBoard.innerHTML = `<h2>You Won!!!</h2>`
+      setTimeout(()=>{elementsDOM.startButton.click()},1000);
       return
     }
-    e.target.parentNode.style.transform = 'rotateY(180deg)';
-    console.log('You won and should not be here')
-    startingValue++
-  } else if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) !== startingValue) {
-
-    boardDOM.innerHTML = `<h2>You Lost!!!</h2>`
-    console.log('Works twice')
-    startingValue = 1;
+    e.target.parentNode.classList.add('rotate');
+    appState.startingValue++
+  } else if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) {
+    elementsDOM.cardBoard.innerHTML = `<h2>You Lost!!!</h2>`
+    appState.startingValue = 1;
   }
-}
-
-function eventHandlerWrapper(arg1, arg2, myFunction) {
-  return function(e) {
-    myFunction(e, arg1, arg2);
-  };
 }
