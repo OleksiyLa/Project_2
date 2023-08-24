@@ -1,21 +1,34 @@
 const elementsDOM = {
   cardBoard: document.querySelector('#card-board'),
   startButton: document.querySelector('#start-button'),
+  maxLevel: document.querySelector('#max-level'),
   currentLevel: document.querySelector('#current-level'),
   tries: document.querySelector('#tries'),
 }
 
 const appState = {
-  maxLevel: 1,
-  currentLevel: 1,
-  tries: 0,
+  maxLevel: localStorage.getItem('maxLevel') ? Number(localStorage.getItem('maxLevel')) : 1,
+  currentLevel: localStorage.getItem('currentLevel') ? Number(localStorage.getItem('currentLevel')) : 1,
+  tries: localStorage.getItem('tries') ? Number(localStorage.getItem('tries')) : 0,
   startingValue: 1,
   numberOfCards: 20,
   shuffledArray: null,
   winCardsIndexes: null,
+  showCardsTimer: 2000,
+  continueTimer: 500,
 }
-appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
-elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+
+elementsDOM.maxLevel.textContent = appState.maxLevel
+elementsDOM.currentLevel.textContent = appState.currentLevel
+elementsDOM.tries.textContent = appState.tries
+
+if(appState.currentLevel > 1) {
+  elementsDOM.cardBoard.appendChild(createContinueButton());
+} else {
+  appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+}
+
 
 elementsDOM.startButton.addEventListener("click", () => {
   resetState();
@@ -24,12 +37,16 @@ elementsDOM.startButton.addEventListener("click", () => {
 
 // Funtions
 function startGame() {
+  appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
   appState.startingValue = 1;
   elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
   appState.winCardsIndexes = getArrOfWinIndexes();
   elementsDOM.currentLevel.textContent = appState.currentLevel;
+  console.log(appState.currentLevel)
   elementsDOM.tries.textContent = appState.tries
+  console.log(appState.tries)
+  setMaxLevel();
   openWinCards();
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
 }
@@ -38,6 +55,26 @@ function resetState() {
   appState.startingValue = 1;
   appState.tries = 0;
   appState.currentLevel = 1;
+  localStorage.setItem('tries', 0);
+  localStorage.setItem('currentLevel', 1);
+}
+
+function setMaxLevel() {
+  if(appState.maxLevel < appState.currentLevel) {
+    appState.maxLevel = appState.currentLevel
+    localStorage.setItem('maxLevel', appState.maxLevel);
+    elementsDOM.maxLevel.textContent = appState.currentLevel
+  }
+}
+
+function createContinueButton() {
+  const button = document.createElement('button');
+  button.className = 'button continue-button';
+  button.innerHTML = 'Continue';
+  button.addEventListener('click', () => {
+    startGame()
+  });
+  return button
 }
 
 // Util Functions
@@ -100,7 +137,7 @@ function openWinCards() {
     })
     setTimeout(()=>{
       card.classList.remove("rotate");
-    }, 2000)
+    }, appState.showCardsTimer)
   })
 }
 
@@ -110,17 +147,24 @@ function clickBoardHandler(e) {
     appState.winCardsIndexes.pop();
     if(!appState.winCardsIndexes.length){
       appState.tries++
+      localStorage.setItem('tries', appState.tries)
       appState.currentLevel++;
+      localStorage.setItem('currentLevel', appState.currentLevel)
       elementsDOM.cardBoard.innerHTML = `<h2>You Won!!!</h2>`
-      setTimeout(startGame,1000);
+      elementsDOM.cardBoard.appendChild(createContinueButton());
+      appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+      elementsDOM.currentLevel.textContent = appState.currentLevel
+      elementsDOM.tries.textContent = appState.tries
+      // setTimeout(startGame, appState.continueTimer);
       return
     }
     e.target.parentNode.classList.add('rotate');
     appState.startingValue++
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
     elementsDOM.cardBoard.innerHTML = `<h2>You Lost!!!</h2>`
-  } else {
+  } else if(e.target.className === "card-back") {
     appState.tries--
+    localStorage.setItem('tries', appState.tries)
     elementsDOM.tries.textContent = appState.tries
   }
 }
