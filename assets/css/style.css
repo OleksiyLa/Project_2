@@ -158,6 +158,14 @@ body {
   color: var(--main-color);
 }
 
+.lose-text {
+  font-size: 3rem;
+  text-align: center;
+  grid-column: 2 / span 3;
+  align-self: center;
+  color: var(--main-color);
+}
+
 .timer {
   text-align: center;
   font-size: 3rem;

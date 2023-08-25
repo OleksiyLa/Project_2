@@ -173,7 +173,7 @@ function clickBoardHandler(e) {
       appState.startingValue++
     }
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
-    elementsDOM.cardBoard.innerHTML = `<h2>You Lost!!!</h2>`
+    elementsDOM.cardBoard.innerHTML = `<h2 class="lose-text">You Lost!</h2>`
   } else if(e.target.className === "card-back") {
     appState.tries--
     localStorage.setItem('tries', appState.tries)
