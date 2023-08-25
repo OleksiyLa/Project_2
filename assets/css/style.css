@@ -26,6 +26,7 @@ body {
   margin: 0;
   font-size: 1rem;
   background: linear-gradient(to bottom, #b2b2b2, #d3d3d3);
+  user-select: none;
 }
 
 /* Table */
@@ -137,15 +138,12 @@ body {
   border-radius: 1rem;
 }
 
-.button {
-}
-
 .continue-button {
   font-size: 1.5rem;
   cursor: pointer;
   align-self: self-end;
   padding: 1rem;
-  grid-column: 2 / span 3;
+  grid-column: 1 / span 4;
   border-radius: 1rem;
   color: var(--light-color);
   background-color: var(--main-color);
@@ -154,14 +152,14 @@ body {
 .win-text {
   font-size: 2rem;
   text-align: center;
-  grid-column: 3;
+  grid-column: 1 / span 4;
   color: var(--main-color);
 }
 
 .lose-text {
-  font-size: 3rem;
+  font-size: 1.5rem;
   text-align: center;
-  grid-column: 2 / span 3;
+  grid-column: 1 / span 4;
   align-self: center;
   color: var(--main-color);
 }
@@ -170,7 +168,7 @@ body {
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
-  grid-column: 3;
+  grid-column: 1 / span 4;
   color: var(--main-color);
 }
 
@@ -182,8 +180,28 @@ body {
   }
 
   /* Controls, start button */
+  .continue-button {
+    font-size: 1.5rem;
+    grid-column: 2 / span 3;
+  }
+
   #start-button {
     width: 50%;
+  }
+
+  .win-text {
+    font-size: 1.5rem;
+    grid-column: 3;
+  }
+  
+  .lose-text {
+    font-size: 2rem;
+    grid-column: 2 / span 3;
+  }
+  
+  .timer {
+    font-size: 2.5rem;
+    grid-column: 3;
   }
 }
 
@@ -233,5 +251,28 @@ body {
   #start-button {
     font-size: 2rem;
     width: 30%;
+  }
+
+  .continue-button {
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-self: self-end;
+    padding: 1rem;
+    grid-column: 2 / span 3;
+    border-radius: 1rem;
+    color: var(--light-color);
+    background-color: var(--main-color);
+  }
+  
+  .win-text {
+    font-size: 2rem;
+  }
+  
+  .lose-text {
+    font-size: 2.5rem;
+  }
+  
+  .timer {
+    font-size: 3rem;
   }
 }

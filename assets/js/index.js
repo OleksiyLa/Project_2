@@ -17,6 +17,12 @@ const appState = {
   showCardsTimer: 2000,
   continueTimer: 1000,
   countDown: 10,
+  set isGameStarted(bool){
+    localStorage.setItem('isGameStarted', bool)
+  },
+  get isGameStarted(){
+    return localStorage.getItem('isGameStarted') ? JSON.parse(localStorage.getItem('isGameStarted')) : false;
+  },
 }
 
 let timerCountDownId;
@@ -25,9 +31,13 @@ elementsDOM.maxLevel.textContent = appState.maxLevel
 elementsDOM.currentLevel.textContent = appState.currentLevel
 elementsDOM.tries.textContent = appState.tries
 
-if(appState.currentLevel > 1) {
+if(appState.currentLevel > 1 && !appState.isGameStarted) {
+  console.log('Should be here', appState.isGameStarted)
   elementsDOM.cardBoard.appendChild(createContinueButton());
 } else {
+  console.log('Why?????')
+  appState.isGameStarted = false;
+  resetState();
   appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
 }
@@ -40,6 +50,7 @@ elementsDOM.startButton.addEventListener("click", () => {
 
 // Funtions
 function startGame() {
+  appState.isGameStarted = true
   if(timerCountDownId) {
     clearInterval(timerCountDownId);
     appState.countDown = 10;
@@ -50,10 +61,7 @@ function startGame() {
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
   appState.winCardsIndexes = getArrOfWinIndexes();
   elementsDOM.currentLevel.textContent = appState.currentLevel;
-  console.log(appState.currentLevel)
   elementsDOM.tries.textContent = appState.tries
-  console.log(appState.tries)
-  setMaxLevel();
   openWinCards();
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
 }
@@ -64,6 +72,8 @@ function resetState() {
   appState.currentLevel = 1;
   localStorage.setItem('tries', 0);
   localStorage.setItem('currentLevel', 1);
+  elementsDOM.tries.textContent = appState.tries;
+  elementsDOM.currentLevel.textContent = appState.currentLevel;
 }
 
 function setMaxLevel() {
@@ -154,10 +164,12 @@ function clickBoardHandler(e) {
   if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
     appState.winCardsIndexes.pop();
     if(!appState.winCardsIndexes.length){
+      appState.isGameStarted = false;
       appState.tries++
       localStorage.setItem('tries', appState.tries)
       appState.currentLevel++;
       localStorage.setItem('currentLevel', appState.currentLevel)
+      setMaxLevel();
       elementsDOM.cardBoard.innerHTML = `
       <h2 class="win-text">${appState.currentLevel > 5 ? 'Excelent Job!' : 'Good Job!'}</h2>
       <div class="timer">${appState.countDown}</div>
@@ -167,13 +179,12 @@ function clickBoardHandler(e) {
       elementsDOM.currentLevel.textContent = appState.currentLevel
       elementsDOM.tries.textContent = appState.tries
       countDown()
-      // return
     } else {
       e.target.parentNode.classList.add('rotate');
       appState.startingValue++
     }
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
-    elementsDOM.cardBoard.innerHTML = `<h2 class="lose-text">You Lost!</h2>`
+    elementsDOM.cardBoard.innerHTML = `<div class="lose-text"><h2>You lost on level ${appState.currentLevel}</h2><p>Click the <strong>New Game</strong> button below to play again</p></div>`
   } else if(e.target.className === "card-back") {
     appState.tries--
     localStorage.setItem('tries', appState.tries)
