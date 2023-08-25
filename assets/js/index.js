@@ -15,8 +15,11 @@ const appState = {
   shuffledArray: null,
   winCardsIndexes: null,
   showCardsTimer: 2000,
-  continueTimer: 500,
+  continueTimer: 1000,
+  countDown: 10,
 }
+
+let timerCountDownId;
 
 elementsDOM.maxLevel.textContent = appState.maxLevel
 elementsDOM.currentLevel.textContent = appState.currentLevel
@@ -37,6 +40,10 @@ elementsDOM.startButton.addEventListener("click", () => {
 
 // Funtions
 function startGame() {
+  if(timerCountDownId) {
+    clearTimeout(timerCountDownId);
+    appState.countDown = 10;
+  }
   appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
   appState.startingValue = 1;
   elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
@@ -72,6 +79,7 @@ function createContinueButton() {
   button.className = 'button continue-button';
   button.innerHTML = 'Continue';
   button.addEventListener('click', () => {
+
     startGame()
   });
   return button
@@ -150,16 +158,20 @@ function clickBoardHandler(e) {
       localStorage.setItem('tries', appState.tries)
       appState.currentLevel++;
       localStorage.setItem('currentLevel', appState.currentLevel)
-      elementsDOM.cardBoard.innerHTML = `<h2>You Won!!!</h2>`
+      elementsDOM.cardBoard.innerHTML = `
+      <h2 class="win-text">${appState.currentLevel > 5 ? 'Excelent Job!' : 'Good Job!'}</h2>
+      <div class="timer">${appState.countDown}</div>
+      `
       elementsDOM.cardBoard.appendChild(createContinueButton());
       appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
       elementsDOM.currentLevel.textContent = appState.currentLevel
       elementsDOM.tries.textContent = appState.tries
-      // setTimeout(startGame, appState.continueTimer);
-      return
+      countDown()
+      // return
+    } else {
+      e.target.parentNode.classList.add('rotate');
+      appState.startingValue++
     }
-    e.target.parentNode.classList.add('rotate');
-    appState.startingValue++
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
     elementsDOM.cardBoard.innerHTML = `<h2>You Lost!!!</h2>`
   } else if(e.target.className === "card-back") {
@@ -167,4 +179,18 @@ function clickBoardHandler(e) {
     localStorage.setItem('tries', appState.tries)
     elementsDOM.tries.textContent = appState.tries
   }
+}
+
+
+function countDown() {
+  timerCountDownId = setTimeout(() => {
+    if(appState.countDown === 1) {
+      appState.countDown = 10
+      startGame()
+    } else {
+      appState.countDown--;
+      elementsDOM.cardBoard.children[1].textContent = appState.countDown;
+      countDown()
+    }
+  }, appState.continueTimer);
 }

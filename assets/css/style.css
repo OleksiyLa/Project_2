@@ -137,6 +137,35 @@ body {
   border-radius: 1rem;
 }
 
+.button {
+}
+
+.continue-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-self: self-end;
+  padding: 1rem;
+  grid-column: 2 / span 3;
+  border-radius: 1rem;
+  color: var(--light-color);
+  background-color: var(--main-color);
+}
+
+.win-text {
+  font-size: 2rem;
+  text-align: center;
+  grid-column: 3;
+  color: var(--main-color);
+}
+
+.timer {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  grid-column: 3;
+  color: var(--main-color);
+}
+
 /* Media queries */
 @media screen and (min-width: 568px) {
   /* Game Board */
