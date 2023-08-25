@@ -41,7 +41,7 @@ elementsDOM.startButton.addEventListener("click", () => {
 // Funtions
 function startGame() {
   if(timerCountDownId) {
-    clearTimeout(timerCountDownId);
+    clearInterval(timerCountDownId);
     appState.countDown = 10;
   }
   appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
@@ -182,15 +182,26 @@ function clickBoardHandler(e) {
 }
 
 
+// function countDown() {
+//   timerCountDownId = setTimeout(() => {
+//     if(appState.countDown === 1) {
+//       appState.countDown = 10
+//       startGame()
+//     } else {
+//       appState.countDown--;
+//       elementsDOM.cardBoard.children[1].textContent = appState.countDown;
+//       countDown()
+//     }
+//   }, appState.continueTimer);
+// }
+
 function countDown() {
-  timerCountDownId = setTimeout(() => {
+  timerCountDownId = setInterval(() => {
     if(appState.countDown === 1) {
-      appState.countDown = 10
       startGame()
     } else {
       appState.countDown--;
       elementsDOM.cardBoard.children[1].textContent = appState.countDown;
-      countDown()
     }
   }, appState.continueTimer);
 }
