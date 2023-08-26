@@ -78,6 +78,7 @@ function displayIndicators() {
  */
 function displayBoard() {
   if(appState.currentLevel > 1 && !appState.isGameStarted) {
+    elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`
     elementsDOM.cardBoard.appendChild(createContinueButton());
   } else {
     appState.isGameStarted = false;
@@ -222,11 +223,19 @@ function clickBoardHandler(e) {
     if(!appState.winCardsIndexes.length){
       appState.isGameStarted = false;
       appState.tries++
-      appState.currentLevel++;
-      elementsDOM.cardBoard.innerHTML = `
-      <h2 class="win-text">${appState.currentLevel > 5 ? 'Excelent Job!' : 'Good Job!'}</h2>
-      <div class="timer">${appState.countDown.number}</div>
-      `
+      if(appState.currentLevel === appState.maxLevel) {
+        appState.currentLevel++;
+        elementsDOM.cardBoard.innerHTML = `
+        <h2 class="win-text">New Record</h2>
+        <div class="timer">${appState.countDown.number}</div>
+        `;
+      } else {
+        appState.currentLevel++;
+        elementsDOM.cardBoard.innerHTML = `
+        <h2 class="win-text">Good Job</h2>
+        <div class="timer">${appState.countDown.number}</div>
+        `;
+      }
       elementsDOM.cardBoard.appendChild(createContinueButton());
       appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
       countDown()
