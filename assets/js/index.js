@@ -38,7 +38,7 @@ const appState = {
     return localStorage.getItem('isGameStarted') ? JSON.parse(localStorage.getItem('isGameStarted')) : false;
   },
   startingValue: 1,
-  numberOfCards: 20,
+  numOfCardsArr: generateArrOfNumbers(20),
   shuffledArray: null,
   winCardsIndexes: null,
   showCardsTimer: 2000,
@@ -72,7 +72,7 @@ function displayBoard() {
   } else {
     appState.isGameStarted = false;
     resetState();
-    appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+    appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
     elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
   }
 }
@@ -84,7 +84,7 @@ function startGame() {
     clearInterval(appState.countDown.intervalId);
     appState.countDown.number = 10;
   }
-  appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+  appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
   appState.startingValue = 1;
   elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
@@ -130,9 +130,9 @@ for (let index = 0; index < arrOfNumbers.length; index++) {
   return newArr
 }
 
-function generateArrayFromOneToArgumentNumber() {
-  let arrNumbers = [];
-  for (let index = 0; index < appState.numberOfCards; index++) {
+function generateArrOfNumbers(num) {
+  const arrNumbers = [];
+  for (let index = 0; index < num; index++) {
     arrNumbers.push(index + 1);
   }
   return arrNumbers
@@ -188,7 +188,7 @@ function clickBoardHandler(e) {
       <div class="timer">${appState.countDown.number}</div>
       `
       elementsDOM.cardBoard.appendChild(createContinueButton());
-      appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+      appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
       countDown()
     } else {
       e.target.parentNode.classList.add('rotate');
