@@ -42,11 +42,12 @@ const appState = {
   shuffledArray: null,
   winCardsIndexes: null,
   showCardsTimer: 2000,
-  continueTimer: 1000,
-  countDown: 10,
+  countDown: {
+    intervalId: null,
+    timer: 1000,
+    number: 10
+  },
 }
-
-let timerCountDownId;
 
 elementsDOM.maxLevel.textContent = appState.maxLevel
 elementsDOM.currentLevel.textContent = appState.currentLevel
@@ -70,9 +71,9 @@ elementsDOM.startButton.addEventListener("click", () => {
 // Funtions
 function startGame() {
   appState.isGameStarted = true
-  if(timerCountDownId) {
-    clearInterval(timerCountDownId);
-    appState.countDown = 10;
+  if(appState.countDown.intervalId) {
+    clearInterval(appState.countDown.intervalId);
+    appState.countDown.number = 10;
   }
   appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
   appState.startingValue = 1;
@@ -175,7 +176,7 @@ function clickBoardHandler(e) {
       appState.currentLevel++;
       elementsDOM.cardBoard.innerHTML = `
       <h2 class="win-text">${appState.currentLevel > 5 ? 'Excelent Job!' : 'Good Job!'}</h2>
-      <div class="timer">${appState.countDown}</div>
+      <div class="timer">${appState.countDown.number}</div>
       `
       elementsDOM.cardBoard.appendChild(createContinueButton());
       appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
@@ -192,12 +193,12 @@ function clickBoardHandler(e) {
 }
 
 function countDown() {
-  timerCountDownId = setInterval(() => {
-    if(appState.countDown === 1) {
+  appState.countDown.intervalId = setInterval(() => {
+    if(appState.countDown.number === 1) {
       startGame()
     } else {
-      appState.countDown--;
-      elementsDOM.cardBoard.children[1].textContent = appState.countDown;
+      appState.countDown.number--;
+      elementsDOM.cardBoard.children[1].textContent = appState.countDown.number;
     }
-  }, appState.continueTimer);
+  }, appState.countDown.timer);
 }
