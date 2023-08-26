@@ -29,7 +29,7 @@ const appState = {
     elementsDOM.tries.textContent = num;
   },
   get tries() {
-    return localStorage.getItem('tries') ? Number(localStorage.getItem('tries')) : 0;;
+    return localStorage.getItem('tries') ? Number(localStorage.getItem('tries')) : 0;
   },
   set isGameStarted(bool) {
     localStorage.setItem('isGameStarted', bool);
@@ -47,6 +47,7 @@ const appState = {
     timer: 1000,
     number: 10
   },
+  wrongCardTimer: 1000,
 }
 
 startApp();
@@ -201,7 +202,7 @@ function clickBoardHandler(e) {
     e.target.parentNode.classList.add('wrong-card');
     setTimeout(() => {
       e.target.parentNode.classList.remove('wrong-card');
-    }, 500)
+    }, appState.wrongCardTimer)
   }
 }
 
