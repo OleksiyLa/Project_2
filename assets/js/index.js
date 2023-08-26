@@ -52,6 +52,9 @@ const appState = {
 
 startApp();
 
+/**
+ * This function initiates the entire application.
+ */
 function startApp() {
   displayIndicators();
   displayBoard();
@@ -61,12 +64,18 @@ function startApp() {
   });
 }
 
+/**
+ * This function shows indicators for the maximum level, current level, and remaining tries.
+ */
 function displayIndicators() {
   elementsDOM.maxLevel.textContent = appState.maxLevel
   elementsDOM.currentLevel.textContent = appState.currentLevel
   elementsDOM.tries.textContent = appState.tries
 }
 
+/**
+ * This function either displays cards on the board or presents a menu to continue the previous game (provided the necessary conditions are met).
+ */
 function displayBoard() {
   if(appState.currentLevel > 1 && !appState.isGameStarted) {
     elementsDOM.cardBoard.appendChild(createContinueButton());
@@ -78,7 +87,9 @@ function displayBoard() {
   }
 }
 
-// Funtions
+/**
+ * This function either continues an ongoing game or starts a new game.
+ */
 function startGame() {
   appState.isGameStarted = true
   if(appState.countDown.intervalId) {
@@ -96,12 +107,19 @@ function startGame() {
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
 }
 
+/**
+ * This function resets the states of the starting value, tries, and current level.
+ */
 function resetState() {
   appState.startingValue = 1;
   appState.tries = 0;
   appState.currentLevel = 1;
 }
 
+/**
+ * This function creates a button and attaches a click event listener to it. 
+ * When the button is clicked, it will proceed with the game.
+ */
 function createContinueButton() {
   const button = document.createElement('button');
   button.className = 'button continue-button';
@@ -112,11 +130,16 @@ function createContinueButton() {
   return button
 }
 
-// Util Functions
+/**
+ * This function selects a random index from an array.
+ */
 function selectRandomArrayIndex(arr) {
   return Math.floor(Math.random() * arr.length);
 }
 
+/**
+ * This function randomly shuffles an array.
+ */
 function shuffleArray(arrOfNumbers) {
 const arr = [...arrOfNumbers];
 const newArr = [];
@@ -131,6 +154,9 @@ for (let index = 0; index < arrOfNumbers.length; index++) {
   return newArr
 }
 
+/**
+ * This function generates an array of numbers in a sequence from 1 to a given number passed as an argument.
+ */
 function generateArrOfNumbers(num) {
   const arrNumbers = [];
   for (let index = 0; index < num; index++) {
@@ -139,6 +165,9 @@ function generateArrOfNumbers(num) {
   return arrNumbers
 }
 
+/**
+ * This function generates HTML for the cards.
+ */
 function generateCardsHTML(arrNumbers) {
   let cardsHTML = '';
   for (let index = 0; index < arrNumbers.length; index++) {
@@ -156,6 +185,9 @@ function generateCardsHTML(arrNumbers) {
   return cardsHTML;
 }
 
+/**
+ * This function returns an array of winning card indexes.
+ */
 function getArrOfWinIndexes() {
   const arrayOfIndexes = []
   for (let index = 0; index < appState.currentLevel; index++) {
@@ -164,6 +196,9 @@ function getArrOfWinIndexes() {
   return arrayOfIndexes;
 }
 
+/**
+ * This function reveals all the winning cards.
+ */
 function openWinCards() {
   appState.winCardsIndexes.map(elem => {
     const card = elementsDOM.cardBoard.children[elem].children[0]
@@ -176,7 +211,11 @@ function openWinCards() {
   })
 }
 
-// Event listener functions
+/**
+ * This function manages the click event listener when a card is clicked.  
+ * If the correct card is found, the function opens that card. If all winning cards are discovered, it displays a message on the board informing the user about the discovered winning cards and initiates a countdown. Additionally, it increases the current level and the number of tries.  
+ * If an incorrect card is chosen, it reduces the number of tries. If no more tries are available, it informs the user that they have lost.
+ */
 function clickBoardHandler(e) {
   if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
     appState.winCardsIndexes.pop();
@@ -206,6 +245,10 @@ function clickBoardHandler(e) {
   }
 }
 
+/**
+ * This function proceeds with the game once the countDown number reaches 1. 
+ * Otherwise, it decreases the countDown number by 1.
+ */
 function countDown() {
   appState.countDown.intervalId = setInterval(() => {
     if(appState.countDown.number === 1) {
