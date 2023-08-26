@@ -2,6 +2,7 @@
   /* Color variables */
   --main-color: #002855;
   --highlight-color: #E8E594;
+  --wrong-color: #ff0000;
   --dark-color: #000000;
   --light-color: #ffffff;
   --text-color: #e3d44c;
@@ -111,6 +112,10 @@ body {
 .card-back:hover {
   transform: scale(1.1);
   transition: 0.25s; 
+}
+
+.wrong-card {
+  background-color: var(--wrong-color);
 }
 
 /* Controls, start button */
