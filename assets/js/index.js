@@ -49,24 +49,33 @@ const appState = {
   },
 }
 
-elementsDOM.maxLevel.textContent = appState.maxLevel
-elementsDOM.currentLevel.textContent = appState.currentLevel
-elementsDOM.tries.textContent = appState.tries
+startApp();
 
-if(appState.currentLevel > 1 && !appState.isGameStarted) {
-  elementsDOM.cardBoard.appendChild(createContinueButton());
-} else {
-  appState.isGameStarted = false;
-  resetState();
-  appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
-  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+function startApp() {
+  displayIndicators();
+  displayBoard();
+  elementsDOM.startButton.addEventListener("click", () => {
+    resetState();
+    startGame();
+  });
 }
 
+function displayIndicators() {
+  elementsDOM.maxLevel.textContent = appState.maxLevel
+  elementsDOM.currentLevel.textContent = appState.currentLevel
+  elementsDOM.tries.textContent = appState.tries
+}
 
-elementsDOM.startButton.addEventListener("click", () => {
-  resetState();
-  startGame();
-});
+function displayBoard() {
+  if(appState.currentLevel > 1 && !appState.isGameStarted) {
+    elementsDOM.cardBoard.appendChild(createContinueButton());
+  } else {
+    appState.isGameStarted = false;
+    resetState();
+    appState.shuffledArray = shuffleArray(generateArrayFromOneToArgumentNumber())
+    elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+  }
+}
 
 // Funtions
 function startGame() {
