@@ -1,7 +1,6 @@
 :root {
   /* Color variables */
   --main-color: #002855;
-  /* main-contrast-color: #E8E594; */
   --main-contrast-color: #ffff00;
   --wrong-color: #e3d44c;
   --dark-color: #000000;
@@ -229,7 +228,7 @@ body {
   }
 
   .win-text {
-    grid-column: 3;
+    grid-column: 2 / span 3;
   }
   
   .lose-text {
