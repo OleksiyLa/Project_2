@@ -29,6 +29,16 @@ body {
   background: linear-gradient(to bottom, #b2b2b2, #d3d3d3);
 }
 
+/* Class helpers */
+.rotate {
+  transform: rotateY(180deg);
+}
+
+.wrong-card {
+  animation: transitionColor 1.1s;
+  background-color: var(--wrong-color);
+}
+
 /* Table */
 .table {
   width: 100%;
@@ -46,11 +56,6 @@ body {
 
 .td {
   font-size: 1.5rem;
-}
-
-/* Class helpers */
-.rotate {
-  transform: rotateY(180deg);
 }
 
 /* Game Board */
@@ -117,11 +122,6 @@ body {
   transition: 0.25s; 
 }
 
-.wrong-card {
-  animation: transitionColor 1.1s;
-  background-color: var(--wrong-color);
-}
-
 @keyframes transitionColor {
   0% {
     background-color: var(--wrong-color);
@@ -141,14 +141,6 @@ body {
   border-radius: 1rem;
   color: var(--light-color);
   background-color: var(--main-color);
-}
-
-.continue-text {
-  grid-column: 1 / span 4;
-  font-size: 2rem;
-  align-self: center;
-  text-align: center;
-  color: var(--main-color);
 }
 
 .win-text {
@@ -222,11 +214,6 @@ body {
     width: 50%;
   }
 
-  .continue-text {
-    grid-column: 3;
-    font-size: 2rem;
-  }
-
   .win-text {
     grid-column: 2 / span 3;
   }
@@ -242,12 +229,6 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
   /* Table */
   .table {
     padding: 0 1rem;
@@ -265,8 +246,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    width: 100%;
   }
 
   #card-board {
@@ -296,20 +275,21 @@ body {
     color: var(--light-color);
     background-color: var(--main-color);
   }
-
-  .continue-text {
-    font-size: 2.5rem;
-  }
   
   .win-text {
+    font-size: 2.5rem;
+  }
+
+  .lose-text h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  .lose-text p {
     font-size: 2rem;
   }
   
-  .lose-text {
-    font-size: 2.5rem;
-  }
-  
   .timer {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
