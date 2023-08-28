@@ -78,33 +78,73 @@ function displayIndicators() {
  */
 function displayBoard() {
   if(appState.currentLevel > 1 && !appState.isGameStarted) {
-    elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`
-    elementsDOM.cardBoard.appendChild(createContinueButton());
+    displayContinueBoard()
   } else {
-    appState.isGameStarted = false;
-    resetState();
-    appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
-    elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
+    displayCardsOnBoard()
   }
+}
+
+/**
+ * This function displays current level and continue button on the board.
+ */
+function displayContinueBoard() {
+  elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`
+  elementsDOM.cardBoard.appendChild(createContinueButton());
+}
+
+/**
+ * This function resets the indicators and presents a board with face-down cards.
+ */
+function displayCardsOnBoard() {
+  appState.isGameStarted = false;
+  resetState();
+  appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
+  elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
 }
 
 /**
  * This function either continues an ongoing game or starts a new game.
  */
 function startGame() {
-  appState.isGameStarted = true
+  resetInterval();
+  setInnerStates();
+  setCards();
+  openWinCards();
+  addsListenerOnBoard();
+}
+
+/**
+ * This function clears interval and set countDown number to 10.
+ */
+function resetInterval() {
   if(appState.countDown.intervalId) {
     clearInterval(appState.countDown.intervalId);
     appState.countDown.number = 10;
   }
-  appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
-  appState.startingValue = 1;
-  elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
+}
+
+/**
+ * This function shuffles cards, displays cards on the board and assigns array of win cards to appState winCardsIndexes.
+ */
+function setCards() {
+  appState.shuffledArray = shuffleArray(appState.numOfCardsArr);
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
   appState.winCardsIndexes = getArrOfWinIndexes();
-  elementsDOM.currentLevel.textContent = appState.currentLevel;
-  elementsDOM.tries.textContent = appState.tries
-  openWinCards();
+}
+
+/**
+ * This function sets isGameStarted to true and startingValue to 1.
+ */
+function setInnerStates() {
+  appState.isGameStarted = true;
+  appState.startingValue = 1;
+}
+
+/**
+ * This function removes an old eventListener and adds a new one.
+ */
+function addsListenerOnBoard() {
+  elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
 }
 
@@ -123,7 +163,7 @@ function resetState() {
  */
 function createContinueButton() {
   const button = document.createElement('button');
-  button.className = 'button continue-button';
+  button.className = 'continue-button';
   button.innerHTML = 'Continue';
   button.addEventListener('click', () => {
     startGame()
@@ -142,16 +182,16 @@ function selectRandomArrayIndex(arr) {
  * This function randomly shuffles an array.
  */
 function shuffleArray(arrOfNumbers) {
-const arr = [...arrOfNumbers];
-const newArr = [];
-let newValue;
-let randomIndex;
-for (let index = 0; index < arrOfNumbers.length; index++) {
-  randomIndex = selectRandomArrayIndex(arr)
-  newValue = arr[randomIndex]
-  arr.splice(randomIndex, 1)
-  newArr.push(newValue)
-}
+  const arr = [...arrOfNumbers];
+  const newArr = [];
+  let newValue;
+  let randomIndex;
+  for (let index = 0; index < arrOfNumbers.length; index++) {
+    randomIndex = selectRandomArrayIndex(arr)
+    newValue = arr[randomIndex]
+    arr.splice(randomIndex, 1)
+    newArr.push(newValue)
+  }
   return newArr
 }
 
@@ -222,7 +262,14 @@ function clickBoardHandler(e) {
     appState.winCardsIndexes.pop();
     if(!appState.winCardsIndexes.length){
       appState.isGameStarted = false;
-      appState.tries++
+      appState.tries++;
+      if(appState.currentLevel === 20) {
+        appState.currentLevel++;
+        elementsDOM.cardBoard.innerHTML = `
+        <h2 class="win-text">You win</h2>
+        `;
+        return;
+      }
       if(appState.currentLevel === appState.maxLevel) {
         appState.currentLevel++;
         elementsDOM.cardBoard.innerHTML = `
@@ -237,7 +284,7 @@ function clickBoardHandler(e) {
         `;
       }
       elementsDOM.cardBoard.appendChild(createContinueButton());
-      appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
+      // appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
       countDown()
     } else {
       e.target.parentNode.classList.add('rotate');
