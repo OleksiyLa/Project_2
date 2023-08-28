@@ -37,6 +37,7 @@ const appState = {
   get isGameStarted() {
     return localStorage.getItem('isGameStarted') ? JSON.parse(localStorage.getItem('isGameStarted')) : false;
   },
+  winLevel: 20,
   startingValue: 1,
   numOfCardsArr: generateArrOfNumbers(20),
   shuffledArray: null,
@@ -262,43 +263,54 @@ function clickBoardHandler(e) {
     appState.winCardsIndexes.pop();
     if(!appState.winCardsIndexes.length){
       appState.isGameStarted = false;
+      appState.currentLevel++;
       appState.tries++;
-      if(appState.currentLevel === 20) {
-        appState.currentLevel++;
-        elementsDOM.cardBoard.innerHTML = `
-        <h2 class="win-text">You win</h2>
-        `;
-        return;
-      }
-      if(appState.currentLevel === appState.maxLevel) {
-        appState.currentLevel++;
-        elementsDOM.cardBoard.innerHTML = `
-        <h2 class="win-text">New Record</h2>
-        <div class="timer">${appState.countDown.number}</div>
-        `;
-      } else {
-        appState.currentLevel++;
-        elementsDOM.cardBoard.innerHTML = `
-        <h2 class="win-text">Good Job</h2>
-        <div class="timer">${appState.countDown.number}</div>
-        `;
-      }
-      elementsDOM.cardBoard.appendChild(createContinueButton());
-      // appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
-      countDown()
+      displayLevelPassed();
     } else {
       e.target.parentNode.classList.add('rotate');
-      appState.startingValue++
+      appState.startingValue++;
     }
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
     elementsDOM.cardBoard.innerHTML = `<div class="lose-text"><h2>You lost on level ${appState.currentLevel}</h2><p>Click the <strong>New Game</strong> button below to play again</p></div>`
   } else if(e.target.className === "card-back") {
-    appState.tries--
-    e.target.parentNode.classList.add('wrong-card');
-    setTimeout(() => {
-      e.target.parentNode.classList.remove('wrong-card');
-    }, appState.wrongCardTimer)
+    higlightWrongCard(e);
   }
+}
+
+/**
+ * This function presents information on the board once a level is successfully completed. It provides messages indicating whether you've won, broken a record, or simply congratulates you with a "good job," depending on specific conditions.
+ */
+function displayLevelPassed() {
+  if(appState.currentLevel === appState.winLevel) {
+    elementsDOM.cardBoard.innerHTML = `
+    <h2 class="win-text">You win</h2>
+    `;
+  } else if(appState.currentLevel === appState.maxLevel) {
+    elementsDOM.cardBoard.innerHTML = `
+    <h2 class="win-text">New Record</h2>
+    <div class="timer">${appState.countDown.number}</div>
+    `;
+    elementsDOM.cardBoard.appendChild(createContinueButton());
+    countDown();
+  } else {
+    elementsDOM.cardBoard.innerHTML = `
+    <h2 class="win-text">Good Job</h2>
+    <div class="timer">${appState.countDown.number}</div>
+    `;
+    elementsDOM.cardBoard.appendChild(createContinueButton());
+    countDown();
+  }
+}
+
+/**
+ * This function highlights the incorrect card and subtracts 1 from the tries.
+ */
+function higlightWrongCard(e) {
+  appState.tries--;
+  e.target.parentNode.classList.add('wrong-card');
+  setTimeout(() => {
+    e.target.parentNode.classList.remove('wrong-card');
+  }, appState.wrongCardTimer);
 }
 
 /**
