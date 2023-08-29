@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
+
 :root {
   /* Color variables */
   --main-color: #002855;
@@ -6,6 +8,7 @@
   --dark-color: #000000;
   --light-color: #ffffff;
   --text-color: #e3d44c;
+  --full-screen-overlay-color: rgba(30, 30, 30, 0.6);
 }
 
 /* Default styles */
@@ -16,6 +19,7 @@
 }
 
 body {
+  font-family: 'Nunito Sans', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,6 +40,45 @@ body {
 .wrong-card {
   animation: transitionColor 1.1s;
   background-color: var(--wrong-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.instruction-overlay {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--full-screen-overlay-color);
+}
+
+.instruction-container {
+  overflow: scroll;
+  width: 100%;
+  height: 85%;
+  color: var(--main-color);
+  background-color: var(--light-color);
+}
+
+.instruction-container h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.instruction-container ol {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.instruction-container li {
+  font-size: 1rem;
+  margin: 1rem auto;
+
 }
 
 /* Table */
@@ -176,6 +219,7 @@ body {
 
 /* Controls, start button */
 #controls-bar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -194,6 +238,42 @@ body {
   box-shadow: 0 0 5px var(--dark-color);
   color: var(--main-color);
   background-color: var(--main-contrast-color);
+}
+
+#instructions-toggler {
+  position: fixed;
+  padding-right: 1rem;
+  cursor: pointer;
+  right: 1rem;
+  font-size: 2rem;
+  z-index: 99;
+}
+
+#instructions-pop-up {
+  font-size: 1.2rem;
+  position: absolute;
+  min-width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 1px var(--dark-color);
+  color: var(--main-color);
+  background-color: var(--light-color);
+  top: -105px;
+  right: 0.3rem;
+}
+
+#instructions-pop-up::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -8px;
+  right: 1.3rem;
+  right: 10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--light-color);
 }
 
 /* Media queries */
@@ -290,5 +370,27 @@ body {
   
   .timer {
     font-size: 4rem;
+  }
+
+  .instruction-container {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80%;
+    min-height: 80%;
+  }
+  
+  .instruction-container h2 {
+    font-size: 2.5rem;
+    margin: 2rem;
+  }
+  
+  .instruction-container ol {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .instruction-container li {
+    font-size: 1.3rem;
+    margin: 1rem auto;
   }
 }

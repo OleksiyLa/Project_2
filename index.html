@@ -34,10 +34,31 @@
     <div id="card-board">
     </div>
   </div>
+  <div class="instruction-overlay hidden">
+    <div class="instruction-container">
+      <h2>Instructions</h2>
+      <ol>
+        <li>To initiate a game, press the "Start Game" button located at the bottom of the screen.</li>
+        <li>A sequence of cards will be revealed for a brief period.</li>
+        <li>You need to memorize those cards and choose them when they close.</li>
+        <li>You must select them in the correct order, starting from one.</li>
+        <li>When you successfully select all the correct cards, you will level up. You will receive an additional try and advance one level.</li>
+        <li>To progress to the next level, you need to wait for the timer displayed on the board to run out, or you can press the "Continue" button on the board.</li>
+        <li>You can pause before the new level starts by either refreshing the page to stop the timer or by closing the tab with the game.</li>
+        <li>The maximum level you can reach is level 20, which is the most challenging. As the levels increase, the number of cards you need to remember also increases.</li>
+        <li>The maximum level you've reached will be saved.</li>
+      </ol>
+    </div>
+  </div>
   <!-- Controls -->
   <div id="controls-bar">
     <!-- Button to start new game -->
     <button id="start-button">New Game</button>
+    <div id="instructions-toggler">?
+      <div id="instructions-pop-up" class="hidden">
+        Click here to see instructions
+      </div>
+    </div>
   </div>
   <!-- JS -->
   <script src="./assets/js/index.js"></script>

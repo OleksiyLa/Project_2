@@ -1,1 +1,2 @@
-# Project_2
+# Memory Game
+A memory game presents a unique challenge where players must recall the positions of hidden cards. Upon starting, the cards briefly reveal themselves, and then they are concealed again. Players rely on their memory to open the cards in the correct numerical order. To emerge triumphant, players must successfully navigate all 20 levels, showcasing not only their memory prowess and ability to recall but also their skill in uncovering the hidden sequence.

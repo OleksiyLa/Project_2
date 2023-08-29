@@ -4,6 +4,9 @@ const elementsDOM = {
   maxLevel: document.querySelector('#max-level'),
   currentLevel: document.querySelector('#current-level'),
   tries: document.querySelector('#tries'),
+  instructionsToggler: document.querySelector('#instructions-toggler'),
+  instructionsPopUp: document.querySelector('#instructions-pop-up'),
+  instructions: document.querySelector('.instruction-overlay'),
 }
 
 const appState = {
@@ -59,6 +62,8 @@ startApp();
 function startApp() {
   displayIndicators();
   displayBoard();
+  showPopUp();
+  elementsDOM.instructionsToggler.addEventListener('click', toggleInstructions);
   elementsDOM.startButton.addEventListener("click", () => {
     resetState();
     startGame();
@@ -326,4 +331,22 @@ function countDown() {
       elementsDOM.cardBoard.children[1].textContent = appState.countDown.number;
     }
   }, appState.countDown.timer);
+}
+
+/**
+ * This function toggles instructions for the game.
+ */
+function toggleInstructions(e) {
+  if(e.target !== elementsDOM.instructionsPopUp) {
+    elementsDOM.instructions.classList.toggle('hidden');
+  }
+}
+
+function showPopUp() {
+  setTimeout(() => {
+    elementsDOM.instructionsPopUp.classList.remove("hidden");
+    setTimeout(() => {
+      elementsDOM.instructionsPopUp.classList.add("hidden");
+    }, 5000)
+  }, 1000)
 }
