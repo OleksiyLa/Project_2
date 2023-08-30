@@ -110,7 +110,6 @@ body {
 #card-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-flow: auto;
   align-self: center;
   height: 100%;
   width: 100%;

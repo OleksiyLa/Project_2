@@ -82,8 +82,43 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 
 ### Validator Testing 
 - __W3C HTML Validator__
+  - The index.html file has been validated using the W3C HTML Validator, with no errors or warnings found.
+
+<br>
+<details><summary>Validated code image (HTML Validator)</summary>
+
+  ![W3C HTML Validator](./README/validators/html.png);
+  
+</details>
 
 - __W3C CSS Validator (Jigsaw)__
+  - The CSS code has been validated using the W3C CSS Validator (Jigsaw), and no errors were found.
+
+<br>
+<details><summary>Validated code image (CSS Validator)</summary>
+
+  ![W3C CSS Validator (Jigsaw)](./README/validators/css.png);
+  
+</details>
+
+  - The only warning that was found pertains to the imported Google font, which is an external link and therefore cannot be validated.
+
+<br>
+<details><summary>Warning image (CSS Validator)</summary>
+
+  ![W3C CSS Validator Warning](./README/validators/css_warning.png);
+  
+</details>
+
+- __JSHint JavaScript Validator__
+  - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected. However, several warnings were identified, primarily related to the usage of ES6 features, such as arrow functions, let, and const.
+
+<br>
+<details><summary>Validated code image (JS Validator)</summary>
+
+  ![JSHint JavaScript Validator](./README/validators/js.png);
+
+</details>
 
 ### Lighthouse
 The Lighthouse reports exhibit outstanding results across all categories. SEO, Best Practices, and Accessibility have all achieved a flawless 100% score on both mobile and desktop platforms. Furthermore, Performance scores are commendable, with a score of 99 for desktop and a 95 for mobile. These outcomes underscore the website's quality and optimization.

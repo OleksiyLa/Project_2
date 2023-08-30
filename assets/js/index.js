@@ -7,7 +7,7 @@ const elementsDOM = {
   instructionsToggler: document.querySelector('#instructions-toggler'),
   instructionsPopUp: document.querySelector('#instructions-pop-up'),
   instructions: document.querySelector('.instruction-overlay'),
-}
+};
 
 const appState = {
   set maxLevel(num) {
@@ -52,7 +52,7 @@ const appState = {
     number: 10
   },
   wrongCardTimer: 1000,
-}
+};
 
 startApp();
 
@@ -74,9 +74,9 @@ function startApp() {
  * This function shows indicators for the maximum level, current level, and remaining tries.
  */
 function displayIndicators() {
-  elementsDOM.maxLevel.textContent = appState.maxLevel
-  elementsDOM.currentLevel.textContent = appState.currentLevel
-  elementsDOM.tries.textContent = appState.tries
+  elementsDOM.maxLevel.textContent = appState.maxLevel;
+  elementsDOM.currentLevel.textContent = appState.currentLevel;
+  elementsDOM.tries.textContent = appState.tries;
 }
 
 /**
@@ -84,9 +84,9 @@ function displayIndicators() {
  */
 function displayBoard() {
   if(appState.currentLevel > 1 && !appState.isGameStarted) {
-    displayContinueBoard()
+    displayContinueBoard();
   } else {
-    displayCardsOnBoard()
+    displayCardsOnBoard();
   }
 }
 
@@ -94,7 +94,7 @@ function displayBoard() {
  * This function displays current level and continue button on the board.
  */
 function displayContinueBoard() {
-  elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`
+  elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`;
   elementsDOM.cardBoard.appendChild(createContinueButton());
 }
 
@@ -104,7 +104,7 @@ function displayContinueBoard() {
 function displayCardsOnBoard() {
   appState.isGameStarted = false;
   resetState();
-  appState.shuffledArray = shuffleArray(appState.numOfCardsArr)
+  appState.shuffledArray = shuffleArray(appState.numOfCardsArr);
   elementsDOM.cardBoard.innerHTML = generateCardsHTML(appState.shuffledArray);
 }
 
@@ -172,9 +172,9 @@ function createContinueButton() {
   button.className = 'continue-button';
   button.innerHTML = 'Continue';
   button.addEventListener('click', () => {
-    startGame()
+    startGame();
   });
-  return button
+  return button;
 }
 
 /**
@@ -193,12 +193,12 @@ function shuffleArray(arrOfNumbers) {
   let newValue;
   let randomIndex;
   for (let index = 0; index < arrOfNumbers.length; index++) {
-    randomIndex = selectRandomArrayIndex(arr)
-    newValue = arr[randomIndex]
-    arr.splice(randomIndex, 1)
-    newArr.push(newValue)
+    randomIndex = selectRandomArrayIndex(arr);
+    newValue = arr[randomIndex];
+    arr.splice(randomIndex, 1);
+    newArr.push(newValue);
   }
-  return newArr
+  return newArr;
 }
 
 /**
@@ -209,7 +209,7 @@ function generateArrOfNumbers(num) {
   for (let index = 0; index < num; index++) {
     arrNumbers.push(index + 1);
   }
-  return arrNumbers
+  return arrNumbers;
 }
 
 /**
@@ -236,7 +236,7 @@ function generateCardsHTML(arrNumbers) {
  * This function returns an array of winning card indexes.
  */
 function getArrOfWinIndexes() {
-  const arrayOfIndexes = []
+  const arrayOfIndexes = [];
   for (let index = 0; index < appState.currentLevel; index++) {
     arrayOfIndexes.push(appState.shuffledArray.findIndex(elem => elem === index + 1));
   }
@@ -248,14 +248,14 @@ function getArrOfWinIndexes() {
  */
 function openWinCards() {
   appState.winCardsIndexes.map(elem => {
-    const card = elementsDOM.cardBoard.children[elem].children[0]
+    const card = elementsDOM.cardBoard.children[elem].children[0];
     setTimeout(()=>{
       card.classList.add("rotate");
-    })
+    });
     setTimeout(()=>{
       card.classList.remove("rotate");
-    }, appState.showCardsTimer)
-  })
+    }, appState.showCardsTimer);
+  });
 }
 
 /**
@@ -276,7 +276,7 @@ function clickBoardHandler(e) {
       appState.startingValue++;
     }
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
-    elementsDOM.cardBoard.innerHTML = `<div class="lose-text"><h2>You lost on level ${appState.currentLevel}</h2><p>Click the <strong>New Game</strong> button below to play again</p></div>`
+    elementsDOM.cardBoard.innerHTML = `<div class="lose-text"><h2>You lost on level ${appState.currentLevel}</h2><p>Click the <strong>New Game</strong> button below to play again</p></div>`;
   } else if(e.target.className === "card-back") {
     higlightWrongCard(e);
   }
@@ -325,7 +325,7 @@ function higlightWrongCard(e) {
 function countDown() {
   appState.countDown.intervalId = setInterval(() => {
     if(appState.countDown.number === 1) {
-      startGame()
+      startGame();
     } else {
       appState.countDown.number--;
       elementsDOM.cardBoard.children[1].textContent = appState.countDown.number;
@@ -350,6 +350,6 @@ function showPopUp() {
     elementsDOM.instructionsPopUp.classList.remove("hidden");
     setTimeout(() => {
       elementsDOM.instructionsPopUp.classList.add("hidden");
-    }, 5000)
-  }, 1000)
+    }, 5000);
+  }, 1000);
 }
