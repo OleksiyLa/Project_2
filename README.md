@@ -1,29 +1,40 @@
 # Memory Game
 A memory game presents a unique challenge where players must recall the positions of hidden cards. Upon starting, the cards briefly reveal themselves, and then they are concealed again. Players rely on their memory to open the cards in the correct numerical order. To emerge triumphant, players must successfully navigate all 20 levels, showcasing not only their memory prowess and ability to recall but also their skill in uncovering the hidden sequence.
 
-![Responsive website on different devices](./README/images/responsive_memory_game.png)
+![Responsive website on different devices](./README/images/responsive.png)
 
 ## Planning & Development
 - __Target audience__
-  - People who want to improve their memory.
-  - Individuals seeking engaging and useful activities.
+  - Individuals interested in enhancing their memory capabilities.
+  - Those in search of engaging and challenging activities.
+  - Individuals seeking friendly competition while playing a memory game.
 
 - __Site Objectives__
-  - The website should be simple and easy to interact with.
-  - Should be engaging
+  - Memory-Enhancing Gameplay: The website's key feature should revolve around a game specifically designed to improve memory skills.
+  - User-Friendly Interface: The website's design and functionality should prioritize user-friendliness, enabling easy navigation and interaction.
+  - Engagement-Centric Design: The website's presentation should be carefully designed to effectively captivate and engage users.
 
 - __User story__
-  - User-Friendly Navigation: As a user, I expect the website to be easy to interact with as well instructions.
-  - Engaging: As a user, I expect the game to be interesting and engaging.
-  - Useful: As a user, I expect this game to be useful by to develop memory skills.
-  - Challenging: As a user, I expect this game to challengibg.
+  - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.
+  - Captivating Experience: In my user role, I look forward to an engaging and immersive game that effectively captures my attention and keeps me intrigued.
+  - Skill Development: As a user, I aim to use this game as a practical tool to enhance my memory skills and unlock their full potential.
+  - Demanding Challenge: In my user role, I expect the game to provide a significant level of challenge, pushing my abilities and ensuring long-lasting engagement.
 
 - __Wireframes__
-  - The game will be responsive, can be played on diferent devices such as mobile, tablet and desktop. At the top the main navigators will be displayed. At the bottom a button to start. In the middle board game will be positioned.
+  - The game has been designed with responsiveness in mind, ensuring seamless gameplay across various devices including mobile phones, tablets, and desktop computers. Essential indicators will be prominently displayed at the top, providing key information to players. Meanwhile, at the bottom of the interface, a "Start" button will be positioned, enabling players to initiate the game with ease. The board game will be positioned at the center.
 
-  ![Mobile wireframe](./README/wireframes/mobile.png)
-  ![Ipad wireframe](./README/wireframes/ipad.png)
-  ![Desktop wireframe](./README/wireframes/desktop.png)
+  <details><summary>Mobile wireframe</summary>
+    ![Mobile wireframe](./README/wireframes/mobile.png)
+  </details>
+  <details><summary>Ipad wireframe</summary>
+    ![Ipad wireframe](./README/wireframes/ipad.png)
+  </details>
+  <details><summary>Desktop wireframe</summary>
+    ![Desktop wireframe](./README/wireframes/desktop.png)
+  </details>
+  
+
+
 
 - __Fonts__
 - In the initial stages of project planning, the core aim was to enhance the user experience and make it thoroughly enjoyable. To accomplish this, a deliberate decision was made to integrate two fonts that not only facilitate effortless reading but also radiate a visually pleasing aesthetic.
@@ -31,7 +42,7 @@ A memory game presents a unique challenge where players must recall the position
   - Nunito Sans
 
 - __Colors__
-- The color palette was intentionally selected to exude simplicity and comfort for the viewer. The main color is a light gray, while the highlight color is yellow. The dark color is black, and the light color is white.
+- The selection of the color palette was a deliberate and meticulous process aimed at evoking an ambiance of simplicity and comfort for all observers. The primary hue of dark blue was chosen as the foundational shade, complemented by the contrasting and vibrant yellow. Additionally, the palette incorporates other colors.
 
   - main color: #002855;
   - main contrast color: #ffff00;
