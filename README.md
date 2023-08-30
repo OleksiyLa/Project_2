@@ -84,36 +84,35 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 - __W3C HTML Validator__
   - The index.html file has been validated using the W3C HTML Validator, with no errors or warnings found.
 
-<br>
 <details><summary>Validated code image (HTML Validator)</summary>
 
   ![W3C HTML Validator](./README/validators/html.png);
   
 </details>
+<br>
 
 - __W3C CSS Validator (Jigsaw)__
   - The CSS code has been validated using the W3C CSS Validator (Jigsaw), and no errors were found.
 
-<br>
 <details><summary>Validated code image (CSS Validator)</summary>
 
   ![W3C CSS Validator (Jigsaw)](./README/validators/css.png);
   
 </details>
+<br>
 
   - The only warning that was found pertains to the imported Google font, which is an external link and therefore cannot be validated.
 
-<br>
 <details><summary>Warning image (CSS Validator)</summary>
 
   ![W3C CSS Validator Warning](./README/validators/css_warning.png);
   
 </details>
+<br>
 
 - __JSHint JavaScript Validator__
   - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected. However, several warnings were identified, primarily related to the usage of ES6 features, such as arrow functions, let, and const.
 
-<br>
 <details><summary>Validated code image (JS Validator)</summary>
 
   ![JSHint JavaScript Validator](./README/validators/js.png);
