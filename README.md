@@ -65,11 +65,13 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 ## Features
 
 ### Responsiveness
+In both the mobile and desktop versions, the game board comprises 20 cards. These cards fill the entire board, which spans the space between the indicator bar and the control bar. However, it's important to mention that the desktop version displays the board and cards in a slightly different layout and proportion, taking up less space. This customized design guarantees an optimal experience across various devices.
 
-- __Mobile__
+<details><summary>The image illustrates the website displayed on various devices.</summary>
 
-
-- __Desktop__
+  ![Responsive website on different devices](./README/images/responsive.png);
+  
+</details>
 
 
 ### Game Indicators
