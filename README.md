@@ -1,5 +1,5 @@
 # Memory Game
-A memory game presents a unique challenge where players must recall the positions of hidden cards. Upon starting, the cards briefly reveal themselves, and then they are concealed again. Players rely on their memory to open the cards in the correct numerical order. To emerge triumphant, players must successfully navigate all 20 levels, showcasing not only their memory prowess and ability to recall but also their skill in uncovering the hidden sequence.
+A memory game introduces a distinct challenge by tasking players with memorizing the placements of hidden cards. At the outset, the cards are briefly exposed before being concealed once again. Players must rely on their memory to unveil the cards in the accurate numerical order. Victory in this game is achieved by successfully progressing through all 20 levels.
 
 ![Responsive website on different devices](./README/images/responsive.png)
 
@@ -17,7 +17,7 @@ A memory game presents a unique challenge where players must recall the position
 - __User story__
   - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.
   - Captivating Experience: In my user role, I look forward to an engaging and immersive game that effectively captures my attention and keeps me intrigued.
-  - Skill Development: As a user, I aim to use this game as a practical tool to enhance my memory skills and unlock their full potential.
+  - Skill Development: As a user, I aim to use this game as a practical tool to enhance my memory skills.
   - Demanding Challenge: In my user role, I expect the game to provide a significant level of challenge, pushing my abilities and ensuring long-lasting engagement.
 
 - __Wireframes__
@@ -36,19 +36,19 @@ A memory game presents a unique challenge where players must recall the position
   <details><summary>Desktop wireframe</summary>
 
     ![Desktop wireframe](./README/wireframes/desktop.png)
-    
+
   </details>
   
 
 
 
 - __Fonts__
-- In the initial stages of project planning, the core aim was to enhance the user experience and make it thoroughly enjoyable. To accomplish this, a deliberate decision was made to integrate two fonts that not only facilitate effortless reading but also radiate a visually pleasing aesthetic.
+- During the project planning phase, the primary objective was to enhance the user experience and provide maximum enjoyment. Regarding font selection, the choice was made to utilize the Nunito Sans font.
 
   - Nunito Sans
 
 - __Colors__
-- The selection of the color palette was a deliberate and meticulous process aimed at evoking an ambiance of simplicity and comfort for all observers. The primary hue of dark blue was chosen as the foundational shade, complemented by the contrasting and vibrant yellow. Additionally, the palette incorporates other colors.
+- The color palette selection was a deliberate and meticulous process with the intention of creating an atmosphere of simplicity and comfort for all viewers. The primary hue of dark blue was chosen as the foundational shade, accompanied by the contrasting and vibrant yellow. Moreover, the palette includes several other colors.
 
   - main color: #002855;
   - main contrast color: #ffff00;
