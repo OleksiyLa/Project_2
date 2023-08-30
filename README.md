@@ -96,7 +96,22 @@ At the top of the screen, three indicators are displayed: Max Level, Level, and 
 
   ![Continue board](./README/images/continue.png)
 
-### Controls (Start button)
+### Controls (New Game button, instruction toggler)
+At the bottom of the screen, you'll notice a control bar. 
+
+![Control bar](./README/images/control_bar.png)
+
+In its center, there's a "New Game" button that, upon clicking, starts the game from its initial level.
+<br>
+On the right side of this bar, you'll find a question mark icon. Clicking on it will display the game instructions.
+
+![Instructions](./README/images/instructions.png)
+
+<br>
+
+When the page loads, a popup appears above the instruction toggler, informing the user to click the toggler for the game instructions.
+
+![Pop up](./README/images/popup.png)
 
 ## Testing 
 
