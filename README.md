@@ -88,16 +88,16 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 ### Lighthouse
 The Lighthouse reports exhibit outstanding results across all categories. SEO, Best Practices, and Accessibility have all achieved a flawless 100% score on both mobile and desktop platforms. Furthermore, Performance scores are commendable, with a score of 99 for desktop and a 95 for mobile. These outcomes underscore the website's quality and optimization.
 <br>
-  <details><summary>Lighthouse report for mobile</summary>
+<details><summary>Lighthouse report for mobile</summary>
 
-    ![Mobile lighthouse report](./README/lighthouse/mobile.png)
-    
-  </details>
-  <details><summary>Lighthouse report for desktop</summary>
+  ![Mobile lighthouse report](./README/lighthouse/mobile.png)
+  
+</details>
+<details><summary>Lighthouse report for desktop</summary>
 
-    ![Desktop lighthouse report](./README/lighthouse/desktop.png)
+  ![Desktop lighthouse report](./README/lighthouse/desktop.png)
 
-  </details>
+</details>
 
 ### Manual Testing
 
