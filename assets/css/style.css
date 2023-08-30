@@ -241,7 +241,7 @@ body {
 }
 
 #instructions-toggler {
-  position: fixed;
+  position: absolute;
   padding: 0 1rem;
   cursor: pointer;
   right: 1rem;
