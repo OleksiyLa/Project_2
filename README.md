@@ -81,9 +81,20 @@ At the top of the screen, three indicators are displayed: Max Level, Level, and 
   - The "Level" indicator provides an overview of your current progress in the game. Each time you correctly identify the necessary cards, you advance to the next level. As you continue, the game's complexity increases proportionally. The number of cards you need to uncover corresponds to your current level. For instance, at level 6, you will need to uncover 6 cards. It's important to note that the game's maximum level you can pass is level 20.
   - The "Tries" indicator shows the number of allowable mistakes you can make when selecting cards. Your initial number of attempts starts at zero. After successfully completing a level, your available tries increase by one. On the other hand, each time you select an incorrect card, your tally of tries decreases by one. If the total number of tries reaches zero and you choose an incorrect card, the game will conclude with a loss.
 
-  ![Indication bar](./README/images/indication_bar.png);
+  ![Indication bar](./README/images/indication_bar.png)
 
 ### Game Board
+  The game board comprises 20 cards, each displaying only their reverse side. When the game is started, a certain number of cards will be momentarily revealed according to the current level. The player's objective is to remember both the revealed cards and their sequence within this brief exposure time. Afterward, the player must choose these cards in ascending order, relying on their memory to accurately recreate the sequence.
+
+  ![Open cards](./README/images/open_cards.png)
+
+  Upon successfully selecting all the correct cards, they disappear from the board. In their stead, you are greeted with either a "Good Job" or "New Record" title, accompanied by a countdown timer positioned in the center of the board. Towards the bottom of the board, there exists a "Continue" button that presents you with the choice to proceed.
+
+  ![Record](./README/images/record.png)
+
+  At this point, you have various options: you can wait for the countdown to expire before starting the next level, press the "Continue" button to proceed, close the tab to exit the game, or reload the page. If you decide to reload the page, close the tab, or exit the browser your progress will be saved. When you come back to the game, you will see your current level title on the board and a button to continue.
+
+  ![Continue board](./README/images/continue.png)
 
 ### Controls (Start button)
 
