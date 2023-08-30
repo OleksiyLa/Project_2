@@ -24,13 +24,19 @@ A memory game presents a unique challenge where players must recall the position
   - The game has been designed with responsiveness in mind, ensuring seamless gameplay across various devices including mobile phones, tablets, and desktop computers. Essential indicators will be prominently displayed at the top, providing key information to players. Meanwhile, at the bottom of the interface, a "Start" button will be positioned, enabling players to initiate the game with ease. The board game will be positioned at the center.
 
   <details><summary>Mobile wireframe</summary>
+
     ![Mobile wireframe](./README/wireframes/mobile.png)
+
   </details>
   <details><summary>Ipad wireframe</summary>
+
     ![Ipad wireframe](./README/wireframes/ipad.png)
+    
   </details>
   <details><summary>Desktop wireframe</summary>
+
     ![Desktop wireframe](./README/wireframes/desktop.png)
+    
   </details>
   
 
