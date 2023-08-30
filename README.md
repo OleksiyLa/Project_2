@@ -23,6 +23,7 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 - __Wireframes__
   - The game has been designed with responsiveness in mind, ensuring seamless gameplay across various devices including mobile phones, tablets, and desktop computers. Essential indicators will be prominently displayed at the top, providing key information to players. Meanwhile, at the bottom of the interface, a "Start" button will be positioned, enabling players to initiate the game with ease. The board game will be positioned at the center.
 
+  <br>
   <details><summary>Mobile wireframe</summary>
 
     ![Mobile wireframe](./README/wireframes/mobile.png)
@@ -39,9 +40,6 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 
   </details>
   
-
-
-
 - __Fonts__
 - During the project planning phase, the primary objective was to enhance the user experience and provide maximum enjoyment. Regarding font selection, the choice was made to utilize the Nunito Sans font.
 
