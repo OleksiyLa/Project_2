@@ -342,6 +342,9 @@ function toggleInstructions(e) {
   }
 }
 
+/**
+ * This function briefly displays a popup to inform the user about the toggler button, which grants access to view the game instructions.
+ */
 function showPopUp() {
   setTimeout(() => {
     elementsDOM.instructionsPopUp.classList.remove("hidden");
