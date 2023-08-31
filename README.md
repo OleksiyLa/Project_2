@@ -185,12 +185,25 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
   - The cards need to be selected in ascending order, starting from one and going higher.
   - If a timer has not yet finished and the continue button has not been clicked, a user can reload or close the browser, and their progress will be saved.
   - If a user reloads the page or closes the tab while the game is in progress, the progress will not be saved, and the user will have to start from level 1.
+  - Clicking the toggler will either display or close the instructions.
+  - When you load the page, a popup above the instruction toggler will briefly appear.
 
 ### Unfixed Bugs
 
 ### Fixed Bugs
 
 ### Test against User stories
+  - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.
+    - The page features a simple and user-friendly design. Controlling the game is as easy as clicking the 'New Game' button. Afterward, the correct cards are momentarily displayed, providing a clear understanding of the task. If a user selects the wrong card or the correct cards in the wrong order, the chosen card is highlighted, allowing the user to make corrections. Despite the game's simplicity and user-friendliness, comprehensive instructions are available by clicking the question mark icon located on the right side of the control bar.
+
+  - Captivating Experience: In my user role, I look forward to an engaging and immersive game that effectively captures my attention and keeps me intrigued.
+    - This game is exceptionally captivating, presenting a well-structured system of rewards and consequences. Upon successfully completing a level, the level indicator rises, offering the user a gratifying sense of achievement. Moreover, as levels are passed, the increase in both the level and tries indicators contributes to user contentment. On the contrary, an incorrect card selection results in a decrease in the tries indicator, gently discouraging errors. Introducing a layer of healthy competition, the Max Level indicator functions as a motivator for users to engage repeatedly, aiming to surpass their personal best or even outdo other players. This blend of rewards, challenges, and competitiveness heightens the overall engagement of the game.
+
+  - Skill Development: As a user, I aim to use this game as a practical tool to enhance my memory skills.
+    - As the cards are briefly revealed for a short duration, users must maintain focus to achieve success in the game. Additionally, users need to remember not only the revealed cards but also their sequence, making this game ideal for enhancing memory and concentration skills.
+
+  - Demanding Challenge: In my user role, I expect the game to provide a significant level of challenge, pushing my abilities and ensuring long-lasting engagement.
+    - As the level increases, the difficulty also rises due to the addition of more cards to be revealed. Since users are required to remember both the opened cards and their specific order, the game becomes progressively more challenging.
 
 ## Deployment
 - __The site has been deployed to GitHub Pages. The deployment process involves the following steps:__
