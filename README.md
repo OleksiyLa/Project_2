@@ -169,12 +169,28 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
 </details>
 
 ### Manual Testing
+  - Confirmed that indicators, the game board, and the controls are all being displayed accurately and appropriately.
+  - The game starts when the New Game button is clicked.
+  - The New Game button starts the game from the first level.
+  - Upon successfully completing a level, a title, a countdown timer, and a continue button will appear on the board.
+  - A title on the board will display as 'Good Job' if you successfully pass a level or as 'New Record' if you achieve the highest level.
+  - When the countdown timer runs out, the game will automatically advance to the next level.
+  - If the continue button is pressed, the game will progress to the next level.
+  - When a level is successfully completed, both indicators the tries and the level will increase by one.
+  - If a user selects the wrong card, that card will be highlighted, and the tries indicator will decrease by one.
+  - If there are 0 tries left and the wrong card is chosen, a message indicating that the game is lost will be displayed on the board.
+  - The highest achieved level will be saved as the Max Level. The Max Level is persistent and will be retained even if the page is reloaded or opened at a later time.
+  - As the level increases, the difficulty also increases. The number of cards a user needs to uncover corresponds to the current level.
+  - At the beginning of each level, the correct cards will be briefly revealed and then concealed again.
+  - The cards need to be selected in ascending order, starting from one and going higher.
+  - If a timer has not yet finished and the continue button has not been clicked, a user can reload or close the browser, and their progress will be saved.
+  - If a user reloads the page or closes the tab while the game is in progress, the progress will not be saved, and the user will have to start from level 1.
 
 ### Unfixed Bugs
 
 ### Fixed Bugs
 
-### Test against userstories
+### Test against User stories
 
 ## Deployment
 - __The site has been deployed to GitHub Pages. The deployment process involves the following steps:__
