@@ -350,6 +350,6 @@ function showPopUp() {
     elementsDOM.instructionsPopUp.classList.remove("hidden");
     setTimeout(() => {
       elementsDOM.instructionsPopUp.classList.add("hidden");
-    }, 5000);
-  }, 1000);
+    }, 2500);
+  }, 500);
 }
