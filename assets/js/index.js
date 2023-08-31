@@ -251,10 +251,10 @@ function openWinCards() {
     const card = elementsDOM.cardBoard.children[elem].children[0];
     setTimeout(()=>{
       card.classList.add("rotate");
-    });
-    setTimeout(()=>{
-      card.classList.remove("rotate");
-    }, appState.showCardsTimer);
+      setTimeout(()=>{
+        card.classList.remove("rotate");
+      }, appState.showCardsTimer);
+    }, 100);
   });
 }
 
