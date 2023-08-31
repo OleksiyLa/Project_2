@@ -243,3 +243,6 @@ The link to the live project - https://oleksiyla.github.io/Project_2/
 
 ### Media
 - All SVG icons, including the favicon, were sourced from FontAwesome: https://fontawesome.com
+
+### Code
+- I reviewed the Medium website to gather information about implementing card flipping effects: https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136
