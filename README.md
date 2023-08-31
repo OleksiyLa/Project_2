@@ -188,9 +188,20 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
   - Clicking the toggler will either display or close the instructions.
   - When you load the page, a popup above the instruction toggler will briefly appear.
 
-### Unfixed Bugs
-
 ### Fixed Bugs
+
+#### Problem
+The tries indicator used to decrease by one not only when a user selected a wrong card but also when a user interacted with the board by clicking on it. This happened regardless of whether the game was active or not. This situation resulted in users losing points they had earned, even without picking a wrong card, significantly impacting their user experience in a negative way.
+
+#### Reason
+The problem could have been avoided by adding multiple event listeners to each card, but the decision was made against this approach to avoid creating numerous event listeners. The issue occurred because a single event listener was added to the entire board instead, and the logic responsible for decreasing the tries indicator was situated within an else statement that lacked a proper condition check.
+
+![Mobile lighthouse report](./README/code/bug.png)
+
+#### Fix
+To resolve this issue, I addressed it by replacing the generic "else" statement with an "else if" statement. This new statement specifically checked whether the clicked element was a card before implementing the logic to decrease the tries indicator.
+
+![Mobile lighthouse report](./README/code/fix.png)
 
 ### Test against User stories
   - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.

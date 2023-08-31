@@ -278,6 +278,7 @@ function clickBoardHandler(e) {
   } else if((e.target.className === "card-back") && (parseInt(e.target.parentNode.dataset.cardNumber) !== appState.startingValue) && !appState.tries) {
     elementsDOM.cardBoard.innerHTML = `<div class="lose-text"><h2>You lost on level ${appState.currentLevel}</h2><p>Click the <strong>New Game</strong> button below to play again</p></div>`;
   } else if(e.target.className === "card-back") {
+    appState.tries--;
     higlightWrongCard(e);
   }
 }
@@ -311,7 +312,6 @@ function displayLevelPassed() {
  * This function highlights the incorrect card and subtracts 1 from the tries.
  */
 function higlightWrongCard(e) {
-  appState.tries--;
   e.target.parentNode.classList.add('wrong-card');
   setTimeout(() => {
     e.target.parentNode.classList.remove('wrong-card');
