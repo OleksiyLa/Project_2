@@ -62,6 +62,17 @@ A memory game introduces a distinct challenge by tasking players with memorizing
   - HTML
   - CSS
 
+## Instructions
+  - To initiate a game, press the "Start Game" button located at the bottom of the screen.
+  - A sequence of cards will be revealed for a brief period.
+  - You need to memorize those cards and choose them when they close.
+  - You must select them in the correct order, starting from one.
+  - When you successfully select all the correct cards, you will level up. You will receive an additional try and advance one level.
+  - To progress to the next level, you need to wait for the timer displayed on the board to run out, or you can press the "Continue" button on the board.
+  - You can pause before the new level starts by either refreshing the page to stop the timer or by closing the tab with the game.
+  - The maximum level you can reach is level 20, which is the most challenging. As the levels increase, the number of cards you need to remember also increases.
+  - The maximum level you've reached will be saved.
+
 ## Features
 
 ### Responsiveness
