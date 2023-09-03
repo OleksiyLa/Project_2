@@ -142,7 +142,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (HTML Validator)</summary>
 
-  ![W3C HTML Validator](./README/images/website/validators/html.png);
+  ![W3C HTML Validator](./README/images/validators/html.png);
   
 </details>
 <br>
@@ -152,7 +152,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (CSS Validator)</summary>
 
-  ![W3C CSS Validator (Jigsaw)](./README/images/website/validators/css.png);
+  ![W3C CSS Validator (Jigsaw)](./README/images/validators/css.png);
   
 </details>
 <br>
@@ -161,7 +161,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Warning image (CSS Validator)</summary>
 
-  ![W3C CSS Validator Warning](./README/images/website/validators/css_warning.png);
+  ![W3C CSS Validator Warning](./README/images/validators/css_warning.png);
   
 </details>
 <br>
@@ -171,7 +171,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (JS Validator)</summary>
 
-  ![JSHint JavaScript Validator](./README/images/website/validators/js.png);
+  ![JSHint JavaScript Validator](./README/images/validators/js.png);
 
 </details>
 
@@ -180,12 +180,12 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
 <br>
 <details><summary>Lighthouse report for mobile</summary>
 
-  ![Mobile lighthouse report](./README/images/website/lighthouse/mobile.png)
+  ![Mobile lighthouse report](./README/images/lighthouse/mobile.png)
   
 </details>
 <details><summary>Lighthouse report for desktop</summary>
 
-  ![Desktop lighthouse report](./README/images/website/lighthouse/desktop.png)
+  ![Desktop lighthouse report](./README/images/lighthouse/desktop.png)
 
 </details>
 
@@ -217,12 +217,12 @@ The tries indicator used to decrease by one not only when a user selected a wron
 #### Reason
 The problem could have been avoided by adding multiple event listeners to each card, but the decision was made against this approach to avoid creating numerous event listeners. The issue occurred because a single event listener was added to the entire board instead, and the logic responsible for decreasing the tries indicator was situated within an else statement that lacked a proper condition check.
 
-![Mobile lighthouse report](./README/images/website/code/bug.png)
+![Mobile lighthouse report](./README/images/code/bug.png)
 
 #### Fix
 To resolve this issue, I addressed it by replacing the generic "else" statement with an "else if" statement. This new statement specifically checked whether the clicked element was a card before implementing the logic to decrease the tries indicator.
 
-![Mobile lighthouse report](./README/images/website/code/fix.png)
+![Mobile lighthouse report](./README/images/code/fix.png)
 
 ### Test against User stories
   - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.
