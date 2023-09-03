@@ -258,4 +258,5 @@ The link to the live project - https://oleksiyla.github.io/Project_2/
 - I reviewed the Medium website to gather information about implementing card flipping effects: https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136
 
 ### README
-- The color palette image featured in the README was sourced from the website http://colormind.io/."
+- The color palette image featured in the README was sourced from the website http://colormind.io/
+- The text content in the README was composed with the assistance of ChatGPT: https://chat.openai.com
