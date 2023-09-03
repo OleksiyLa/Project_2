@@ -128,6 +128,12 @@ When the page loads, a popup appears above the instruction toggler, informing th
 
 ![Pop up](./README/images/popup.png)
 
+<br>
+
+The deliberate design choice of keeping the "New Game" button relatively small serves a dual purpose. Firstly, it minimizes distractions, allowing users to concentrate more on the game board. Secondly, on mobile devices, the smaller button reduces the likelihood of accidental clicks, enhancing the user experience. In contrast, the "Continue" button was intentionally designed to be larger, reducing the chance of misclicks and ensuring smooth and deliberate interactions during gameplay. This thoughtful approach optimizes the gameplay experience for users across different devices.
+
+![Mobile Board](./README/images/mobile_board.png) ![Mobile Countdown](./README/images/mobile_countdown.png)
+
 ## Testing 
 
 ### Validator Testing 
