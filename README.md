@@ -90,9 +90,9 @@ When loading the game at level 1, the cards are initially disabled. To start a n
   ![Responsive website on different devices](./README/images/website/welcome_popup.png)
 
 ### Game Indicators
-At the top of the screen, three indicators are displayed: Max Level, Level, and Tries.
+At the top of the screen, three indicators are displayed: Record, Level, and Tries.
 
-  - The "Max Level" indicator indicates the highest level you have achieved in the game. Importantly, your progress is automatically saved by the browser. Whenever you return to the game, your recorded achievement is prominently shown in the "Max Level" column, providing a convenient method to monitor your accomplishments.
+  - The "Record" indicator indicates the highest level you have achieved in the game. Importantly, your progress is automatically saved by the browser. Whenever you return to the game, your recorded achievement is prominently shown in the "Record" column, providing a convenient method to monitor your accomplishments.
   - The "Level" indicator provides an overview of your current progress in the game. Each time you correctly identify the necessary cards, you advance to the next level. As you continue, the game's complexity increases proportionally. The number of cards you need to uncover corresponds to your current level. For instance, at level 6, you will need to uncover 6 cards. It's important to note that the game's maximum level you can achieve is level 20.
   - The "Tries" indicator shows the number of allowable mistakes you can make when selecting cards. Your initial number of attempts starts at zero. After successfully completing a level, your available tries increase by one. On the other hand, each time you select an incorrect card, your tally of tries decreases by one. If the total number of tries reaches zero and you choose an incorrect card, the game will conclude with a loss.
 
@@ -200,7 +200,7 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
   - When a level is successfully completed, both indicators the tries and the level will increase by one.
   - If a user selects the wrong card, that card will be highlighted, and the tries indicator will decrease by one.
   - If there are 0 tries left and the wrong card is chosen, a message indicating that the game is lost will be displayed on the board.
-  - The highest achieved level will be saved as the Max Level. The Max Level is persistent and will be retained even if the page is reloaded or opened at a later time.
+  - The highest achieved level will be saved as the Record. The Record is persistent and will be retained even if the page is reloaded or opened at a later time.
   - As the level increases, the difficulty also increases. The number of cards a user needs to uncover corresponds to the current level.
   - At the beginning of each level, the correct cards will be briefly revealed and then concealed again.
   - The cards need to be selected in ascending order, starting from one and going higher.
@@ -229,7 +229,7 @@ To resolve this issue, I addressed it by replacing the generic "else" statement 
     - The page features a simple and user-friendly design. Controlling the game is as easy as clicking the 'New Game' button. Afterward, the correct cards are momentarily displayed, providing a clear understanding of the task. If a user selects the wrong card or the correct cards in the wrong order, the chosen card is highlighted, allowing the user to make corrections. Despite the game's simplicity and user-friendliness, comprehensive instructions are available by clicking the question mark icon located on the right side of the control bar.
 
   - Captivating Experience: In my user role, I look forward to an engaging and immersive game that effectively captures my attention and keeps me intrigued.
-    - This game is exceptionally captivating, presenting a well-structured system of rewards and consequences. Upon successfully completing a level, the level indicator rises, offering the user a gratifying sense of achievement. Moreover, as levels are passed, the increase in both the level and tries indicators contributes to user contentment. On the contrary, an incorrect card selection results in a decrease in the tries indicator, gently discouraging errors. Introducing a layer of healthy competition, the Max Level indicator functions as a motivator for users to engage repeatedly, aiming to surpass their personal best or even outdo other players. This blend of rewards, challenges, and competitiveness heightens the overall engagement of the game.
+    - This game is exceptionally captivating, presenting a well-structured system of rewards and consequences. Upon successfully completing a level, the level indicator rises, offering the user a gratifying sense of achievement. Moreover, as levels are passed, the increase in both the level and tries indicators contributes to user contentment. On the contrary, an incorrect card selection results in a decrease in the tries indicator, gently discouraging errors. Introducing a layer of healthy competition, the Record indicator functions as a motivator for users to engage repeatedly, aiming to surpass their personal best or even outdo other players. This blend of rewards, challenges, and competitiveness heightens the overall engagement of the game.
 
   - Skill Development: As a user, I aim to use this game as a practical tool to enhance my memory skills.
     - As the cards are briefly revealed for a short duration, users must maintain focus to achieve success in the game. Additionally, users need to remember not only the revealed cards but also their sequence, making this game ideal for enhancing memory and concentration skills.
