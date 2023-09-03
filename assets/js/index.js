@@ -7,6 +7,7 @@ const elementsDOM = {
   instructionsToggler: document.querySelector('#instructions-toggler'),
   instructionsPopUp: document.querySelector('#instructions-pop-up'),
   instructions: document.querySelector('.instruction-overlay'),
+  cancelIcon: document.querySelector('#cancel-svg'),
 };
 
 const appState = {
@@ -64,6 +65,7 @@ function startApp() {
   displayBoard();
   showPopUp();
   elementsDOM.instructionsToggler.addEventListener('click', toggleInstructions);
+  elementsDOM.cancelIcon.addEventListener('click', toggleInstructions);
   elementsDOM.startButton.addEventListener("click", () => {
     resetState();
     startGame();

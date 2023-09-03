@@ -59,8 +59,6 @@ A memory game introduces a distinct challenge by tasking players with memorizing
 
 - __Technologies__
   - JavaScript
-  - DOM
-  - Local Storage
   - HTML
   - CSS
 

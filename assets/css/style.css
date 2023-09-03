@@ -58,11 +58,22 @@ body {
 }
 
 .instruction-container {
+  position: relative;
   overflow: auto;
   width: 100%;
   height: 85%;
   color: var(--main-color);
   background-color: var(--light-color);
+}
+
+#cancel-svg {
+  position: absolute;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  fill: var(--main-color);
 }
 
 .instruction-container h2 {
@@ -373,17 +384,19 @@ body {
   }
 
   .instruction-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin: 0 auto;
     width: 80%;
     min-height: 80%;
   }
+
+  #cancel-svg {
+    width: 3rem;
+    height: 3rem;
+  }
   
   .instruction-container h2 {
     font-size: 2.5rem;
-    margin: 2rem;
+    margin: 7rem auto 2rem;
   }
   
   .instruction-container ol {
