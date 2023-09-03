@@ -1,7 +1,7 @@
 const elementsDOM = {
   cardBoard: document.querySelector('#card-board'),
   startButton: document.querySelector('#start-button'),
-  maxLevel: document.querySelector('#max-level'),
+  record: document.querySelector('#record'),
   currentLevel: document.querySelector('#current-level'),
   tries: document.querySelector('#tries'),
   instructionsToggler: document.querySelector('#instructions-toggler'),
@@ -12,12 +12,12 @@ const elementsDOM = {
 };
 
 const appState = {
-  set maxLevel(num) {
-    localStorage.setItem('maxLevel', num);
-    elementsDOM.maxLevel.textContent = num;
+  set record(num) {
+    localStorage.setItem('record', num);
+    elementsDOM.record.textContent = num;
   },
-  get maxLevel() {
-    return localStorage.getItem('maxLevel') ? Number(localStorage.getItem('maxLevel')) : 1;
+  get record() {
+    return localStorage.getItem('record') ? Number(localStorage.getItem('record')) : 1;
   },
   set currentLevel(num) {
     localStorage.setItem('currentLevel', num);
@@ -75,7 +75,7 @@ function startApp() {
  * This function shows indicators for the maximum level, current level, and remaining tries.
  */
 function displayIndicators() {
-  elementsDOM.maxLevel.textContent = appState.maxLevel;
+  elementsDOM.record.textContent = appState.record;
   elementsDOM.currentLevel.textContent = appState.currentLevel;
   elementsDOM.tries.textContent = appState.tries;
 }
@@ -284,8 +284,8 @@ function clickBoardHandler(e) {
       appState.currentLevel++;
       appState.tries++;
       displayLevelPassed();
-      if(appState.currentLevel > appState.maxLevel) {
-        appState.maxLevel = appState.currentLevel;
+      if(appState.currentLevel > appState.record) {
+        appState.record = appState.currentLevel;
       }
     } else {
       e.target.parentNode.classList.add('rotate');
@@ -309,7 +309,7 @@ function displayLevelPassed() {
     elementsDOM.cardBoard.innerHTML = `
     <h2 class="win-text">You win</h2>
     `;
-  } else if(appState.currentLevel > appState.maxLevel) {
+  } else if(appState.currentLevel > appState.record) {
     elementsDOM.cardBoard.innerHTML = `
     <h2 class="win-text">New Record</h2>
     <div class="timer">${appState.countDown.number}</div>
