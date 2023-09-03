@@ -365,7 +365,7 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
-  /* Table */
+  /* Indicators (Table) */
   .table {
     padding: 0 1rem;
   }
@@ -429,6 +429,7 @@ body {
     font-size: 4rem;
   }
 
+  /* Instructions */
   .instruction-container {
     margin: 0 auto;
     width: 80%;
@@ -455,6 +456,7 @@ body {
     margin: 1rem auto;
   }
 
+  /* Welcome PopUp */
   .welcome-popup-section {
     padding: 3rem;
   }
