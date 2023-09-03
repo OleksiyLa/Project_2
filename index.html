@@ -40,31 +40,36 @@
       </ol>
     </div>
   </section>
-  <!-- A table section displaying the maximum level achieved, the current game level, and the number of possible mistakes. -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="th">Max level</th>
-        <th class="th">Level</th>
-        <th class="th">Tries</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="td" id="max-level"></td>
-        <td class="td" id="current-level"></td>
-        <td class="td" id="tries"></td>
-      </tr>
-    </tbody>
-  </table>
-  <!-- Container -->
-  <div class="container">
+  <!-- An Indicators section displaying the maximum level achieved, the current game level, and the number of possible mistakes. -->
+  <section id="indicators-section">
+    <h2 class="hidden">Game Indicators</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="th">Max level</th>
+          <th class="th">Level</th>
+          <th class="th">Tries</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td" id="max-level"></td>
+          <td class="td" id="current-level"></td>
+          <td class="td" id="tries"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- Main Section (Board where the game is played) -->
+  <section class="container">
+    <h2 class="hidden">Board Game</h2>
     <!-- A card board section where the game is displayed. -->
     <div id="card-board">
     </div>
-  </div>
+  </section>
   <!-- Controls section -->
-  <div id="controls-bar">
+  <section id="controls-bar">
+    <h2 class="hidden">Controls section</h2>
     <!-- Button to start new game -->
     <button id="start-button">New Game</button>
     <div id="instructions-toggler">?
@@ -72,7 +77,7 @@
         Click here to see the instructions
       </div>
     </div>
-  </div>
+  </section>
   <!-- JS -->
   <script src="./assets/js/index.js"></script>
 </body>

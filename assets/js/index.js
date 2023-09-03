@@ -359,6 +359,9 @@ function showPopUp() {
   }, 500);
 }
 
+/**
+ * This function displays a welcome popup to explain what to do when the game just loaded.
+ */
 function showWelcomePopUp() {
   const welcomePopup = elementsDOM.welcomePopup;
   welcomePopup.classList.remove('hidden');
