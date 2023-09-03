@@ -84,6 +84,10 @@ In both the mobile and desktop versions, the game board comprises 20 cards. Thes
   
 </details>
 
+### Welcome Pop Up
+When loading the game at level 1, the cards are initially disabled. To start a new game, users must click on the 'New Game' button. To provide clear instructions for users, a pop-up window appears, displaying the game's title and providing guidance on how to begin a new game. Additionally, an arrow within the pop-up directs the user's attention to the 'New Game' button, ensuring a seamless and user-friendly experience.
+
+  ![Responsive website on different devices](./README/images/welcome_popup.png);
 
 ### Game Indicators
 At the top of the screen, three indicators are displayed: Max Level, Level, and Tries.
