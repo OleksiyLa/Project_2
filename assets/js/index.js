@@ -20,9 +20,6 @@ const appState = {
     return localStorage.getItem('maxLevel') ? Number(localStorage.getItem('maxLevel')) : 1;
   },
   set currentLevel(num) {
-    if(num > this.maxLevel) {
-      this.maxLevel = num;
-    }
     localStorage.setItem('currentLevel', num);
     elementsDOM.currentLevel.textContent = num;
   },
@@ -287,6 +284,9 @@ function clickBoardHandler(e) {
       appState.currentLevel++;
       appState.tries++;
       displayLevelPassed();
+      if(appState.currentLevel > appState.maxLevel) {
+        appState.maxLevel = appState.currentLevel;
+      }
     } else {
       e.target.parentNode.classList.add('rotate');
       appState.startingValue++;
@@ -309,7 +309,7 @@ function displayLevelPassed() {
     elementsDOM.cardBoard.innerHTML = `
     <h2 class="win-text">You win</h2>
     `;
-  } else if(appState.currentLevel === appState.maxLevel) {
+  } else if(appState.currentLevel > appState.maxLevel) {
     elementsDOM.cardBoard.innerHTML = `
     <h2 class="win-text">New Record</h2>
     <div class="timer">${appState.countDown.number}</div>
