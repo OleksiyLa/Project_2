@@ -26,17 +26,17 @@ A memory game introduces a distinct challenge by tasking players with memorizing
   <br>
   <details><summary>Mobile wireframe</summary>
 
-    ![Mobile wireframe](./README/wireframes/mobile.png)
+    ![Mobile wireframe](./README/images/wireframes/mobile.png)
 
   </details>
   <details><summary>Ipad wireframe</summary>
 
-    ![Ipad wireframe](./README/wireframes/ipad.png)
+    ![Ipad wireframe](./README/images/wireframes/ipad.png)
     
   </details>
   <details><summary>Desktop wireframe</summary>
 
-    ![Desktop wireframe](./README/wireframes/desktop.png)
+    ![Desktop wireframe](./README/images/wireframes/desktop.png)
 
   </details>
   
@@ -80,14 +80,14 @@ In both the mobile and desktop versions, the game board comprises 20 cards. Thes
 
 <details><summary>The image illustrates the website displayed on various devices.</summary>
 
-  ![Responsive website on different devices](./README/images/website/responsive.png);
+  ![Responsive website on different devices](./README/images/website/responsive.png)
   
 </details>
 
 ### Welcome Pop Up
 When loading the game at level 1, the cards are initially disabled. To start a new game, users must click on the 'New Game' button. To provide clear instructions for users, a pop-up window appears, displaying the game's title and providing guidance on how to begin a new game. Additionally, an arrow within the pop-up directs the user's attention to the 'New Game' button, ensuring a seamless and user-friendly experience.
 
-  ![Responsive website on different devices](./README/images/website/welcome_popup.png);
+  ![Responsive website on different devices](./README/images/website/welcome_popup.png)
 
 ### Game Indicators
 At the top of the screen, three indicators are displayed: Max Level, Level, and Tries.
@@ -142,7 +142,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (HTML Validator)</summary>
 
-  ![W3C HTML Validator](./README/images/validators/html.png);
+  ![W3C HTML Validator](./README/images/validators/html.png)
   
 </details>
 <br>
@@ -152,7 +152,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (CSS Validator)</summary>
 
-  ![W3C CSS Validator (Jigsaw)](./README/images/validators/css.png);
+  ![W3C CSS Validator (Jigsaw)](./README/images/validators/css.png)
   
 </details>
 <br>
@@ -161,7 +161,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Warning image (CSS Validator)</summary>
 
-  ![W3C CSS Validator Warning](./README/images/validators/css_warning.png);
+  ![W3C CSS Validator Warning](./README/images/validators/css_warning.png)
   
 </details>
 <br>
@@ -171,7 +171,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (JS Validator)</summary>
 
-  ![JSHint JavaScript Validator](./README/images/validators/js.png);
+  ![JSHint JavaScript Validator](./README/images/validators/js.png)
 
 </details>
 
