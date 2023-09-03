@@ -8,6 +8,7 @@ const elementsDOM = {
   instructionsPopUp: document.querySelector('#instructions-pop-up'),
   instructions: document.querySelector('.instruction-overlay'),
   cancelIcon: document.querySelector('#cancel-svg'),
+  welcomePopup: document.querySelector('.welcome-popup-section')
 };
 
 const appState = {
@@ -67,6 +68,7 @@ function startApp() {
   elementsDOM.instructionsToggler.addEventListener('click', toggleInstructions);
   elementsDOM.cancelIcon.addEventListener('click', toggleInstructions);
   elementsDOM.startButton.addEventListener("click", () => {
+    elementsDOM.welcomePopup.classList.add('hidden');
     resetState();
     startGame();
   });
@@ -89,6 +91,7 @@ function displayBoard() {
     displayContinueBoard();
   } else {
     displayCardsOnBoard();
+    showWelcomePopUp()
   }
 }
 
@@ -354,4 +357,10 @@ function showPopUp() {
       elementsDOM.instructionsPopUp.classList.add("hidden");
     }, 2500);
   }, 500);
+}
+
+function showWelcomePopUp() {
+  const welcomePopup = elementsDOM.welcomePopup;
+  welcomePopup.classList.remove('hidden');
+  welcomePopup.classList.add('animateWelcomePopUp');
 }
