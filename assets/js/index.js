@@ -100,8 +100,12 @@ function displayBoard() {
  * This function displays current level and continue button on the board.
  */
 function displayContinueBoard() {
-  elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`;
-  elementsDOM.cardBoard.appendChild(createContinueButton());
+  if(appState.currentLevel === appState.winLevel) {
+    elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">You won</h2>`;
+  } else {
+    elementsDOM.cardBoard.innerHTML = `<h2 class="win-text">Level ${appState.currentLevel}</h2>`;
+    elementsDOM.cardBoard.appendChild(createContinueButton());
+  }
 }
 
 /**

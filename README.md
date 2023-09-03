@@ -260,3 +260,6 @@ The link to the live project - https://oleksiyla.github.io/Project_2/
 ### README
 - The color palette image featured in the README was sourced from the website http://colormind.io/
 - The text content in the README was composed with the assistance of ChatGPT: https://chat.openai.com
+- The validation image for HTML were captured from: https://validator.w3.org/
+- The validation image for CSS were captured from: https://jigsaw.w3.org/css-validator/
+- The validation image for JS were captured from: https://jshint.com/
