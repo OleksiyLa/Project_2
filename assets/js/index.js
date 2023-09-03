@@ -330,9 +330,9 @@ function displayLevelPassed() {
  * This function highlights the incorrect card and subtracts 1 from the tries.
  */
 function higlightWrongCard(e) {
-  e.target.parentNode.classList.add('wrong-card');
+  e.target.classList.add('wrong-card');
   setTimeout(() => {
-    e.target.parentNode.classList.remove('wrong-card');
+    e.target.classList.remove('wrong-card');
   }, appState.wrongCardTimer);
 }
 

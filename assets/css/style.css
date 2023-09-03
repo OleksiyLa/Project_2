@@ -171,8 +171,6 @@ body {
   align-self: center;
   height: 100%;
   width: 100%;
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
   overflow: hidden;
   user-select: none;
   box-shadow: 0 0 5px var(--dark-color);
@@ -194,7 +192,6 @@ body {
   -webkit-transform-style: preserve-3d;
   transition: transform 0.5s;
   -webkit-transition: transform 0.5s;
-  background-color: var(--main-color);
 }
 
 .card-front,
@@ -207,6 +204,7 @@ body {
   position: absolute;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  background-color: var(--main-color);
 }
 
 .card-front {
@@ -224,7 +222,7 @@ body {
 }
 
 .card-back:hover {
-  transform: scale(1.1);
+  background-size: 2.8rem;
   transition: 0.25s; 
 }
 
