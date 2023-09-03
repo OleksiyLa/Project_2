@@ -130,7 +130,7 @@ When the page loads, a popup appears above the instruction toggler, informing th
 
 <br>
 
-The deliberate design choice of keeping the "New Game" button relatively small serves a dual purpose. Firstly, it minimizes distractions, allowing users to concentrate more on the game board. Secondly, on mobile devices, the smaller button reduces the likelihood of accidental clicks, enhancing the user experience. In contrast, the "Continue" button was intentionally designed to be larger, reducing the chance of misclicks and ensuring smooth and deliberate interactions during gameplay. This thoughtful approach optimizes the gameplay experience for users across different devices.
+The deliberate design choice of keeping the 'New Game' button relatively small serves a dual purpose. Firstly, it minimizes distractions, enabling users to concentrate more on the game board. Secondly, on mobile devices, the smaller button reduces the likelihood of accidental clicks, enhancing the user experience. In contrast, the 'Continue' button was intentionally designed to be larger, reducing the chance of misclicks and ensuring smooth and deliberate interactions during gameplay. This thoughtful approach optimizes the gameplay experience for users across various devices.
 
 ![Mobile Board](./README/images/mobile_board.png) ![Mobile Countdown](./README/images/mobile_countdown.png)
 
@@ -256,3 +256,6 @@ The link to the live project - https://oleksiyla.github.io/Project_2/
 
 ### Code
 - I reviewed the Medium website to gather information about implementing card flipping effects: https://medium.com/designer-recipes/understanding-card-flip-animation-using-css-391c40ed3136
+
+### README
+- The color palette image featured in the README was sourced from the website http://colormind.io/."
