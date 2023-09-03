@@ -118,7 +118,7 @@ At the bottom of the screen, you'll notice a control bar.
 
 In its center, there's a "New Game" button that, upon clicking, starts the game from its initial level.
 <br>
-On the right side of this bar, you'll find a question mark icon. Clicking on it will display the game instructions.
+On the right side of this bar, you'll find a question mark icon. Clicking on it will display the game instructions. To close the game instructions, a user can click either on the question mark icon or the cancel icon at the top right corner of the instructions.
 
 ![Instructions](./README/images/instructions.png)
 
