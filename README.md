@@ -1,7 +1,7 @@
 # Memory Game
 A memory game introduces a distinct challenge by tasking players with memorizing the placements of hidden cards. At the outset, the cards are briefly exposed before being concealed once again. Players must rely on their memory to unveil the cards in the accurate numerical order. Victory in this game is achieved by successfully progressing through all 20 levels.
 
-![Responsive website on different devices](./README/images/responsive.png)
+![Responsive website on different devices](./README/images/website/responsive.png)
 
 ## Planning & Development
 - __Target audience__
@@ -80,59 +80,59 @@ In both the mobile and desktop versions, the game board comprises 20 cards. Thes
 
 <details><summary>The image illustrates the website displayed on various devices.</summary>
 
-  ![Responsive website on different devices](./README/images/responsive.png);
+  ![Responsive website on different devices](./README/images/website/responsive.png);
   
 </details>
 
 ### Welcome Pop Up
 When loading the game at level 1, the cards are initially disabled. To start a new game, users must click on the 'New Game' button. To provide clear instructions for users, a pop-up window appears, displaying the game's title and providing guidance on how to begin a new game. Additionally, an arrow within the pop-up directs the user's attention to the 'New Game' button, ensuring a seamless and user-friendly experience.
 
-  ![Responsive website on different devices](./README/images/welcome_popup.png);
+  ![Responsive website on different devices](./README/images/website/welcome_popup.png);
 
 ### Game Indicators
 At the top of the screen, three indicators are displayed: Max Level, Level, and Tries.
 
   - The "Max Level" indicator indicates the highest level you have achieved in the game. Importantly, your progress is automatically saved by the browser. Whenever you return to the game, your recorded achievement is prominently shown in the "Max Level" column, providing a convenient method to monitor your accomplishments.
-  - The "Level" indicator provides an overview of your current progress in the game. Each time you correctly identify the necessary cards, you advance to the next level. As you continue, the game's complexity increases proportionally. The number of cards you need to uncover corresponds to your current level. For instance, at level 6, you will need to uncover 6 cards. It's important to note that the game's maximum level you can pass is level 20.
+  - The "Level" indicator provides an overview of your current progress in the game. Each time you correctly identify the necessary cards, you advance to the next level. As you continue, the game's complexity increases proportionally. The number of cards you need to uncover corresponds to your current level. For instance, at level 6, you will need to uncover 6 cards. It's important to note that the game's maximum level you can achieve is level 20.
   - The "Tries" indicator shows the number of allowable mistakes you can make when selecting cards. Your initial number of attempts starts at zero. After successfully completing a level, your available tries increase by one. On the other hand, each time you select an incorrect card, your tally of tries decreases by one. If the total number of tries reaches zero and you choose an incorrect card, the game will conclude with a loss.
 
-  ![Indication bar](./README/images/indication_bar.png)
+  ![Indication bar](./README/images/website/indication_bar.png)
 
 ### Game Board
   The game board comprises 20 cards, each displaying only their reverse side. When the game is started, a certain number of cards will be momentarily revealed according to the current level. The player's objective is to remember both the revealed cards and their sequence within this brief exposure time. Afterward, the player must choose these cards in ascending order, relying on their memory to accurately recreate the sequence.
 
-  ![Open cards](./README/images/open_cards.png)
+  ![Open cards](./README/images/website/open_cards.png)
 
   Upon successfully selecting all the correct cards, they disappear from the board. In their stead, you are greeted with either a "Good Job" or "New Record" title, accompanied by a countdown timer positioned in the center of the board. Towards the bottom of the board, there exists a "Continue" button that presents you with the choice to proceed.
 
-  ![Record](./README/images/record.png)
+  ![Record](./README/images/website/record.png)
 
   At this point, you have various options: you can wait for the countdown to expire before starting the next level, press the "Continue" button to proceed, close the tab to exit the game, or reload the page. If you decide to reload the page, close the tab, or exit the browser your progress will be saved. When you come back to the game, you will see your current level title on the board and a button to continue.
 
-  ![Continue board](./README/images/continue.png)
+  ![Continue board](./README/images/website/continue.png)
 
 ### Controls (New Game button, instruction toggler)
 At the bottom of the screen, you'll notice a control bar. 
 
-![Control bar](./README/images/control_bar.png)
+![Control bar](./README/images/website/control_bar.png)
 
 In its center, there's a "New Game" button that, upon clicking, starts the game from its initial level.
 <br>
 On the right side of this bar, you'll find a question mark icon. Clicking on it will display the game instructions. To close the game instructions, a user can click either on the question mark icon or the cancel icon at the top right corner of the instructions.
 
-![Instructions](./README/images/instructions.png)
+![Instructions](./README/images/website/instructions.png)
 
 <br>
 
 When the page loads, a popup appears above the instruction toggler, informing the user to click the toggler for the game instructions.
 
-![Pop up](./README/images/popup.png)
+![Pop up](./README/images/website/popup.png)
 
 <br>
 
 The deliberate design choice of keeping the 'New Game' button relatively small serves a dual purpose. Firstly, it minimizes distractions, enabling users to concentrate more on the game board. Secondly, on mobile devices, the smaller button reduces the likelihood of accidental clicks, enhancing the user experience. In contrast, the 'Continue' button was intentionally designed to be larger, reducing the chance of misclicks and ensuring smooth and deliberate interactions during gameplay. This thoughtful approach optimizes the gameplay experience for users across various devices.
 
-![Mobile Board](./README/images/mobile_board.png) ![Mobile Countdown](./README/images/mobile_countdown.png)
+![Mobile Board](./README/images/website/mobile_board.png) ![Mobile Countdown](./README/images/website/mobile_countdown.png)
 
 ## Testing 
 
@@ -142,7 +142,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (HTML Validator)</summary>
 
-  ![W3C HTML Validator](./README/validators/html.png);
+  ![W3C HTML Validator](./README/images/website/validators/html.png);
   
 </details>
 <br>
@@ -152,7 +152,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (CSS Validator)</summary>
 
-  ![W3C CSS Validator (Jigsaw)](./README/validators/css.png);
+  ![W3C CSS Validator (Jigsaw)](./README/images/website/validators/css.png);
   
 </details>
 <br>
@@ -161,7 +161,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Warning image (CSS Validator)</summary>
 
-  ![W3C CSS Validator Warning](./README/validators/css_warning.png);
+  ![W3C CSS Validator Warning](./README/images/website/validators/css_warning.png);
   
 </details>
 <br>
@@ -171,7 +171,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 
 <details><summary>Validated code image (JS Validator)</summary>
 
-  ![JSHint JavaScript Validator](./README/validators/js.png);
+  ![JSHint JavaScript Validator](./README/images/website/validators/js.png);
 
 </details>
 
@@ -180,12 +180,12 @@ The Lighthouse reports exhibit outstanding results across all categories. SEO, B
 <br>
 <details><summary>Lighthouse report for mobile</summary>
 
-  ![Mobile lighthouse report](./README/lighthouse/mobile.png)
+  ![Mobile lighthouse report](./README/images/website/lighthouse/mobile.png)
   
 </details>
 <details><summary>Lighthouse report for desktop</summary>
 
-  ![Desktop lighthouse report](./README/lighthouse/desktop.png)
+  ![Desktop lighthouse report](./README/images/website/lighthouse/desktop.png)
 
 </details>
 
@@ -217,12 +217,12 @@ The tries indicator used to decrease by one not only when a user selected a wron
 #### Reason
 The problem could have been avoided by adding multiple event listeners to each card, but the decision was made against this approach to avoid creating numerous event listeners. The issue occurred because a single event listener was added to the entire board instead, and the logic responsible for decreasing the tries indicator was situated within an else statement that lacked a proper condition check.
 
-![Mobile lighthouse report](./README/code/bug.png)
+![Mobile lighthouse report](./README/images/website/code/bug.png)
 
 #### Fix
 To resolve this issue, I addressed it by replacing the generic "else" statement with an "else if" statement. This new statement specifically checked whether the clicked element was a card before implementing the logic to decrease the tries indicator.
 
-![Mobile lighthouse report](./README/code/fix.png)
+![Mobile lighthouse report](./README/images/website/code/fix.png)
 
 ### Test against User stories
   - Intuitive Interaction: As a user, I anticipate that the website will offer easy and intuitive interaction.
