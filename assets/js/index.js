@@ -92,7 +92,7 @@ function displayBoard() {
     displayContinueBoard();
   } else {
     displayCardsOnBoard();
-    showWelcomePopUp()
+    showWelcomePopUp();
   }
 }
 
@@ -244,7 +244,8 @@ function generateCardsHTML(arrNumbers) {
 function getArrOfWinIndexes() {
   const arrayOfIndexes = [];
   for (let index = 0; index < appState.currentLevel; index++) {
-    arrayOfIndexes.push(appState.shuffledArray.findIndex(elem => elem === index + 1));
+    const arrIndex = appState.shuffledArray.findIndex(elem => elem === index + 1);
+    arrayOfIndexes.push(arrIndex);
   }
   return arrayOfIndexes;
 }

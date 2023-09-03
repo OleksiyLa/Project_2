@@ -167,7 +167,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 <br>
 
 - __JSHint JavaScript Validator__
-  - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected. However, several warnings were identified, primarily related to the usage of ES6 features, such as arrow functions, let, and const.
+  - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected.
 
 <details><summary>Validated code image (JS Validator)</summary>
 
