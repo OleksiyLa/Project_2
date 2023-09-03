@@ -84,7 +84,8 @@ function displayIndicators() {
 }
 
 /**
- * This function either displays cards on the board or presents a menu to continue the previous game (provided the necessary conditions are met).
+ * This function either displays cards on the board or presents a menu to continue 
+ * the previous game (provided the necessary conditions are met).
  */
 function displayBoard() {
   if(appState.currentLevel > 1 && !appState.isGameStarted) {
@@ -265,8 +266,11 @@ function openWinCards() {
 
 /**
  * This function manages the click event listener when a card is clicked.  
- * If the correct card is found, the function opens that card. If all winning cards are discovered, it displays a message on the board informing the user about the discovered winning cards and initiates a countdown. Additionally, it increases the current level and the number of tries.  
- * If an incorrect card is chosen, it reduces the number of tries. If no more tries are available, it informs the user that they have lost.
+ * If the correct card is found, the function opens that card. If all winning cards are discovered, 
+ * it displays a message on the board informing the user about the discovered winning cards and initiates a countdown. 
+ * Additionally, it increases the current level and the number of tries.  
+ * If an incorrect card is chosen, it reduces the number of tries. 
+ * If no more tries are available, it informs the user that they have lost.
  */
 function clickBoardHandler(e) {
   if(e.target.className === "card-back" && parseInt(e.target.parentNode.dataset.cardNumber) === appState.startingValue) {
@@ -289,7 +293,8 @@ function clickBoardHandler(e) {
 }
 
 /**
- * This function presents information on the board once a level is successfully completed. It provides messages indicating whether you've won, broken a record, or simply congratulates you with a "good job," depending on specific conditions.
+ * This function presents information on the board once a level is successfully completed. 
+ * It provides messages indicating whether you've won, broken a record, or simply congratulates you with a "good job," depending on specific conditions.
  */
 function displayLevelPassed() {
   if(appState.currentLevel === appState.winLevel) {
