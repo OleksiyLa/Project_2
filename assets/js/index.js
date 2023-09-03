@@ -136,7 +136,8 @@ function resetInterval() {
 }
 
 /**
- * This function shuffles cards, displays cards on the board and assigns array of win cards to appState winCardsIndexes.
+ * This function shuffles cards, displays cards on the board and 
+ * assigns array of win cards to appState winCardsIndexes.
  */
 function setCards() {
   appState.shuffledArray = shuffleArray(appState.numOfCardsArr);
@@ -267,8 +268,9 @@ function openWinCards() {
 
 /**
  * This function manages the click event listener when a card is clicked.  
- * If the correct card is found, the function opens that card. If all winning cards are discovered, 
- * it displays a message on the board informing the user about the discovered winning cards and initiates a countdown. 
+ * If the correct card is found, the function opens that card.
+ *  If all winning cards are discovered, it displays a message on the board 
+ * informing the user about the discovered winning cards and initiates a countdown. 
  * Additionally, it increases the current level and the number of tries.  
  * If an incorrect card is chosen, it reduces the number of tries. 
  * If no more tries are available, it informs the user that they have lost.
@@ -295,7 +297,8 @@ function clickBoardHandler(e) {
 
 /**
  * This function presents information on the board once a level is successfully completed. 
- * It provides messages indicating whether you've won, broken a record, or simply congratulates you with a "good job," depending on specific conditions.
+ * It provides messages indicating whether you've won, broken a record, or simply congratulates 
+ * you with a "good job," depending on specific conditions.
  */
 function displayLevelPassed() {
   if(appState.currentLevel === appState.winLevel) {
@@ -354,7 +357,8 @@ function toggleInstructions(e) {
 }
 
 /**
- * This function briefly displays a popup to inform the user about the toggler button, which grants access to view the game instructions.
+ * This function briefly displays a popup to inform the user about the toggler button,
+ *  which grants access to view the game instructions.
  */
 function showPopUp() {
   setTimeout(() => {
