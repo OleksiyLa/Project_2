@@ -55,6 +55,8 @@ A memory game introduces a distinct challenge by tasking players with memorizing
   - dark color: #000000;
   - light color: #ffffff;
 
+  ![Color pallete](./README/images/color_pallete.png)
+
 - __Technologies__
   - JavaScript
   - DOM

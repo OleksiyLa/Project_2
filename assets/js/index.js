@@ -116,7 +116,7 @@ function startGame() {
   setInnerStates();
   setCards();
   openWinCards();
-  addsListenerOnBoard();
+  addListenerOnBoard();
 }
 
 /**
@@ -149,7 +149,7 @@ function setInnerStates() {
 /**
  * This function removes an old eventListener and adds a new one.
  */
-function addsListenerOnBoard() {
+function addListenerOnBoard() {
   elementsDOM.cardBoard.removeEventListener("click", clickBoardHandler);
   elementsDOM.cardBoard.addEventListener("click", clickBoardHandler);
 }
