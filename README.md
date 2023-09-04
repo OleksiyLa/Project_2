@@ -157,7 +157,7 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 </details>
 <br>
 
-  - The only warning that was found pertains to the imported Google font, which is an external link and therefore cannot be validated.
+  - The warnings found pertain to the imported Google font, which is an external link and cannot be validated, as well as the use of the '-webkit' declarations.
 
 <details><summary>Warning image (CSS Validator)</summary>
 
