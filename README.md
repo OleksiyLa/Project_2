@@ -167,13 +167,21 @@ The deliberate design choice of keeping the 'New Game' button relatively small s
 <br>
 
 - __JSHint JavaScript Validator__
-  - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected.
+  - The JavaScript file has been validated using the JSHint JavaScript Validator, and no errors were detected but there was a warning "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (index)."
 
-<details><summary>Validated code image (JS Validator)</summary>
+  ![JSHint JavaScript Validator (full image)](./README/images/validators/js/warning.png)
 
-  ![JSHint JavaScript Validator](./README/images/validators/js.png)
+  - To tackle the issue I created a wrapper function in which I passed the index as an argument.
 
-</details>
+  ![JSHint JavaScript Validator (code snippet)](./README/images/validators/js/wrapper.png)
+
+  -  The  wrapper function has removed the warning.
+
+  ![JSHint JavaScript Validator (full image)](./README/images/validators/js/no_warnings.png)
+
+  - However, upon further consideration, I opted not to implement the wrapper function in my code. I found my original code easy to read and understand without the need for the wrapper function, so I decided to leave the warning as is.
+
+  ![JSHint JavaScript Validator (code snippet)](./README/images/validators/js/no_wrapper.png)
 
 ### Lighthouse
 The Lighthouse reports exhibit outstanding results across all categories. SEO, Best Practices, and Accessibility have all achieved a flawless 100% score on both mobile and desktop platforms. Furthermore, Performance scores are commendable, with a score of 99 for desktop and a 95 for mobile. These outcomes underscore the website's quality and optimization.
